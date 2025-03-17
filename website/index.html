@@ -71,14 +71,18 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
             // Set triangle stroke properties
-            ctx.strokeStyle = '#4A89D0'; 
             ctx.lineWidth = 15;  // Thicker lines
             ctx.lineJoin = 'round';  // Round corners at vertices
             ctx.lineCap = 'round';   // Round ends of lines
             
-            // Draw the two triangles as hollow outlines
+            // Draw the two triangles with gradients
             // First triangle (A, B, C)
+            let gradient1 = ctx.createLinearGradient(pointB.x, pointB.y, pointC.x, pointC.y);
+            gradient1.addColorStop(0, '#4A89D0');
+            gradient1.addColorStop(1, '#06AE3C');
+            
             ctx.beginPath();
+            ctx.strokeStyle = gradient1;
             ctx.moveTo(pointA.x, pointA.y);
             ctx.lineTo(pointB.x, pointB.y);
             ctx.lineTo(pointC.x, pointC.y);
@@ -86,7 +90,12 @@
             ctx.stroke();
             
             // Second triangle (A, B, C_star)
+            let gradient2 = ctx.createLinearGradient(pointB.x, pointB.y, pointCStar.x, pointCStar.y);
+            gradient2.addColorStop(0, '#4A89D0');
+            gradient2.addColorStop(1, '#06AE3C');
+            
             ctx.beginPath();
+            ctx.strokeStyle = gradient2;
             ctx.moveTo(pointA.x, pointA.y);
             ctx.lineTo(pointB.x, pointB.y);
             ctx.lineTo(pointCStar.x, pointCStar.y);
