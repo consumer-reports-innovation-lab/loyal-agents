@@ -1,22 +1,3 @@
-// Add styles to document
-const style = document.createElement('style');
-style.textContent = `
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #0F1723;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-    }
-    canvas {
-        display: block;
-    }
-`;
-document.head.appendChild(style);
-
 export function initTriangleAnimation(containerId) {
     // Create canvas element
     const canvas = document.createElement('canvas');
