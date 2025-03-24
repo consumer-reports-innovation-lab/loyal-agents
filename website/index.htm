@@ -214,7 +214,7 @@
         /* Hero Section */
         .hero {
             position: relative;
-            min-height: 600px;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -257,20 +257,37 @@
             gap: 15px;
             flex-wrap: wrap;
         }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 10px;
+            height: 40px;
+        }
         
-        /* Canvas positioning */
-        canvas {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
+        .partner-logo {
+            height: 40px;
+            object-fit: contain;
         }
         
         /* Triangle container */
         #triangleContainer {
             position: absolute;
             right: 0;
-            bottom: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* Canvas positioning */
+        canvas {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
         }
         
@@ -681,18 +698,23 @@
             }
             
             .hero-content {
-                padding: 60px 0 200px;
-            }
-            
-            canvas {
-                right: -150px;
-                bottom: -100px;
-                transform: scale(0.7);
+                padding: 60px 0 100px;
             }
             
             .leadership-profile {
                 flex-direction: column;
                 text-align: center;
+            }
+            
+            .partner-logo {
+                height: 30px;
+            }
+            
+            .logo-container {
+                gap: 20px;
+                margin-bottom: 30px;
+                height: 30px;
+                max-height: 30px;
             }
         }
         
@@ -718,6 +740,7 @@
                 font-size: 1.8rem;
             }
         }
+
     </style>
 </head>
 <body>
@@ -727,7 +750,7 @@
             <div class="tagline">
                 <p>Building a Trusted AI Future: Consumer-First, Secure by Design</p>
             </div>
-            <!-- <div class="mobile-toggle" id="menuToggle">
+            <div class="mobile-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </div> -->
             <!-- <nav id="mainNav">
@@ -751,6 +774,10 @@
         </script>
         <div class="container">
             <div class="hero-content">
+                <div class="logo-container">
+                    <img src="./images/del_logo.svg" alt="Digital Economy Lab Logo" class="partner-logo">
+                    <img src="./images/cr_logo.svg" alt="Consumer Reports Logo" class="partner-logo">
+                </div>
                 <h1 class="hero-title">Safe and Useful AI Agents</h1>
                 <h2 class="hero-subtitle">A Stanford Initative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents</h2>
                 <p class="hero-subtitle">Developing standards and protocols for AI agents that are secure, transparent, and loyal to users' interests</p>
@@ -766,7 +793,7 @@
     <section id="about" class="bg-light">
         <div class="container">
             <h2 class="section-title">About the Initiative</h2>
-            <p class="section-subtitle">Stanford’s Digital Economy Lab and Consumer Reports (CR) are joining forces to create a forward-looking Initiative dedicated to developing and governing consumer-authorized AI agents. By bringing together market leaders, technology pioneers, and policy experts, this coalition will tackle the complex challenge of ensuring that AI agents act securely, transparently, and in the user’s best interests. The Initiative will focus on defining standards, prototyping next-generation software protocols, and demonstrating real-world applications in a sandbox environment—ultimately creating a more dynamic, competitive marketplace driven by “loyal by design” AI.</p>
+            <p class="section-subtitle" style="text-align: justify;">Stanford's Digital Economy Lab and Consumer Reports (CR) are joining forces to create a forward-looking Initiative dedicated to developing and governing consumer-authorized AI agents. By bringing together market leaders, technology pioneers, and policy experts, this coalition will tackle the complex challenge of ensuring that AI agents act securely, transparently, and in the user's best interests. The Initiative will focus on defining standards, prototyping next-generation software protocols, and demonstrating real-world applications in a sandbox environment—ultimately creating a more dynamic, competitive marketplace driven by "loyal by design" AI.</p>
 
             
             <div class="about-grid">

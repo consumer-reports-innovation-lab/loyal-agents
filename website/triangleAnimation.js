@@ -1,45 +1,77 @@
 export function initTriangleAnimation(containerId) {
     // Create canvas element
     const canvas = document.createElement('canvas');
-    canvas.width = 600;
-    canvas.height = 600;
-    document.getElementById(containerId).appendChild(canvas);
+    const container = document.getElementById(containerId);
     
-    const ctx = canvas.getContext('2d');
+    // Function to handle canvas sizing and DPI scaling
+    function setupCanvas() {
+        // Get container dimensions
+        const containerRect = container.getBoundingClientRect();
+        
+        // Get device pixel ratio for high DPI displays
+        const dpr = window.devicePixelRatio || 1;
+        
+        // Set display size (css pixels)
+        canvas.style.width = `${containerRect.width}px`;
+        canvas.style.height = `${containerRect.height}px`;
+        
+        // Set actual size in memory (scaled for DPI)
+        canvas.width = containerRect.width * dpr;
+        canvas.height = containerRect.height * dpr;
+        
+        // Get context and scale all drawing operations
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        
+        return {
+            ctx,
+            width: containerRect.width,
+            height: containerRect.height
+        };
+    }
+    
+    // Add canvas to container
+    container.appendChild(canvas);
+    
+    // Initial setup
+    let { ctx, width, height } = setupCanvas();
     
     // Define center of the canvas for reference
-    const centerX = canvas.width / 2-75;
-    const centerY = canvas.height / 2+75;
+    let centerX = width / 2 - 75;
+    let centerY = height / 2 - 75;
     
-    // Fixed vertices A and B (common to both triangles) - diagonal at 45 degrees
-    const pointA = { 
-        x: centerX - 150, 
-        y: centerY - 150  // A at top left
+    // Make points relative to canvas size
+    const scale = Math.min(width, height) / 800; // Base scale on original 600px design
+    
+    // Fixed vertices A and B (common to both triangles)
+    let pointA = { 
+        x: centerX - 150 * scale, 
+        y: centerY - 100 * scale
     };
     
-    const pointB = { 
-        x: centerX + 150, 
-        y: centerY + 150  // B at bottom right
+    let pointB = { 
+        x: centerX + 150 * scale, 
+        y: centerY + 100 * scale
     };
     
-    // Adjust initial positions for C and C_star in the top right
+    // Adjust initial positions for C and C_star
     let pointC = { 
-        x: centerX + 150, 
-        y: centerY - 300,
-        baseX: centerX + 150,
-        baseY: centerY - 300,
-        amplitude: 50,
+        x: centerX + 150 * scale, 
+        y: centerY - 200 * scale,
+        baseX: centerX + 150 * scale,
+        baseY: centerY - 200 * scale,
+        amplitude: 50 * scale,
         frequency: 0.01,
         phaseX: 0,
         phaseY: Math.PI / 5
     };
     
     let pointCStar = { 
-        x: centerX + 300, 
-        y: centerY - 200,
-        baseX: centerX + 300,
-        baseY: centerY - 200,
-        amplitude: 50,
+        x: centerX + 250 * scale, 
+        y: centerY - 150 * scale,
+        baseX: centerX + 250 * scale,
+        baseY: centerY - 150 * scale,
+        amplitude: 50 * scale,
         frequency: 0.01,
         phaseX: Math.PI / 5,
         phaseY: Math.PI / 5
@@ -47,15 +79,14 @@ export function initTriangleAnimation(containerId) {
     
     // Drawing function
     function drawTriangles() {
-        // Clear canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Clear canvas using style dimensions
+        ctx.clearRect(0, 0, width, height);
         
-        // Set triangle stroke properties
-        ctx.lineWidth = 15;  // Thicker lines
-        ctx.lineJoin = 'round';  // Round corners at vertices
-        ctx.lineCap = 'round';   // Round ends of lines
+        // Scale line width based on canvas size
+        ctx.lineWidth = 15 * scale;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
         
-        // Draw the two triangles with gradients
         // First triangle (A, B, C)
         let gradient1 = ctx.createLinearGradient(pointB.x, pointB.y, pointC.x, pointC.y);
         gradient1.addColorStop(0, '#4A89D0');
@@ -85,21 +116,18 @@ export function initTriangleAnimation(containerId) {
     
     // Update function with smooth, organic movement
     function updatePoints() {
-        // Update phases
         pointC.phaseX += pointC.frequency;
         pointC.phaseY += pointC.frequency * 1.2;
         
         pointCStar.phaseX += pointCStar.frequency * 0.9;
         pointCStar.phaseY += pointCStar.frequency * 1.1;
         
-        // Calculate new positions with parametric movement
         pointC.x = pointC.baseX + Math.sin(pointC.phaseX) * pointC.amplitude * Math.sin(pointC.phaseY * 0.3);
         pointC.y = pointC.baseY + Math.sin(pointC.phaseY) * (pointC.amplitude * 0.8);
         
         pointCStar.x = pointCStar.baseX + Math.sin(pointCStar.phaseX) * pointCStar.amplitude;
         pointCStar.y = pointCStar.baseY + Math.cos(pointCStar.phaseY) * (pointCStar.amplitude * 0.7) * Math.sin(pointCStar.phaseX * 0.5);
         
-        // Add slight random variations occasionally for more natural movement
         if (Math.random() < 0.005) {
             pointC.frequency = 0.005 + Math.random() * 0.01;
             pointCStar.frequency = 0.005 + Math.random() * 0.015;
@@ -112,6 +140,53 @@ export function initTriangleAnimation(containerId) {
         drawTriangles();
         requestAnimationFrame(animate);
     }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Recalculate canvas dimensions and scaling
+        ({ ctx, width, height } = setupCanvas());
+        
+        // Update center points
+        centerX = width / 2 - 75;
+        centerY = height / 2 - 75;
+        
+        // Update scale
+        const newScale = Math.min(width, height) / 800;
+        
+        // Update all points with new scale and positions
+        pointA = { 
+            x: centerX - 150 * newScale, 
+            y: centerY - 100 * newScale
+        };
+        
+        pointB = { 
+            x: centerX + 150 * newScale, 
+            y: centerY + 100 * newScale
+        };
+        
+        // Update C and C_star with new positions
+        const cPhaseX = pointC.phaseX;
+        const cPhaseY = pointC.phaseY;
+        pointC = {
+            ...pointC,
+            baseX: centerX + 150 * newScale,
+            baseY: centerY - 200 * newScale,
+            amplitude: 50 * newScale,
+            phaseX: cPhaseX,
+            phaseY: cPhaseY
+        };
+        
+        const csPhaseX = pointCStar.phaseX;
+        const csPhaseY = pointCStar.phaseY;
+        pointCStar = {
+            ...pointCStar,
+            baseX: centerX + 250 * newScale,
+            baseY: centerY - 150 * newScale,
+            amplitude: 50 * newScale,
+            phaseX: csPhaseX,
+            phaseY: csPhaseY
+        };
+    });
     
     // Start animation
     animate();
