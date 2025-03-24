@@ -141,27 +141,24 @@
             color: white;
         }
         
-        /* Hero Section */
+        /* Hero Section (Updated Layout) */
         .hero {
             position: relative;
             min-height: 80vh;
-            display: flex;
-            align-items: center;
             overflow: hidden;
             padding: 0;
         }
         
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #051A33;
-            z-index: -1;
+        .hero-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80vh;
         }
         
-        .hero-content {
+        .hero-content-container {
+            flex: 1;
             position: relative;
             z-index: 2;
             padding: 80px 0;
@@ -202,21 +199,19 @@
         }
         
         /* Triangle animation container */
-        #triangleContainer {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 60%;
+        .hero-triangle-container {
+            flex: 1;
+            position: relative;
             height: 100%;
+            min-height: 80vh;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         canvas {
             position: absolute;
-            right: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
             z-index: 1;
         }
         
@@ -377,16 +372,26 @@
         
         /* Mobile styles */
         @media (max-width: 991px) {
-            section {
-                padding: 60px 0;
+            .hero-wrapper {
+                flex-direction: column;
+            }
+            
+            .hero-content-container {
+                max-width: 100%;
+                padding: 60px 0 40px;
+            }
+            
+            .hero-triangle-container {
+                clear:both;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0.4;
             }
             
             .hero-title {
                 font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
             }
             
             canvas {
@@ -406,7 +411,7 @@
                 max-height: 30px;
             }
             
-            .hero-content {
+            .hero-content-container {
                 padding: 60px 0 100px;
             }
             
@@ -459,8 +464,10 @@
             }
             
             canvas {
-                right: -200px;
+                right: 0;
+                left: 0;
                 transform: scale(0.5);
+                transform-origin: center;
             }
             
             .section-title {
@@ -471,11 +478,9 @@
 </head>
 <body>
     <!-- Hero Section with Dynamic Triangles -->
-    <section class="hero">
-        <div class="hero-background"></div>
-        <div id="triangleContainer"></div>
-        <div class="container">
-            <div class="hero-content">
+    <section class="hero bg-dark">
+        <div class="container hero-wrapper">
+            <div class="hero-content-container">
                 <div class="logo-container">
                     <img src="./images/del_logo.svg" alt="Digital Economy Lab Logo" class="partner-logo">
                     <img src="./images/cr_logo.svg" alt="Consumer Reports Logo" class="partner-logo">
@@ -487,6 +492,9 @@
                     <a href="#stakeholder" class="btn btn-primary">Become a Stakeholder</a>
                     <a href="#mailing-list" class="btn btn-secondary">Join Our Mailing List</a>
                 </div>
+            </div>
+            <div class="hero-triangle-container" id="triangleContainer">
+                <!-- Triangle animation will go here -->
             </div>
         </div>
     </section>
@@ -662,13 +670,16 @@
         // Get device pixel ratio for high DPI displays
         const dpr = window.devicePixelRatio || 1;
         
-        // Set display size (css pixels)
-        canvas.style.width = `${containerRect.width}px`;
-        canvas.style.height = `${containerRect.height}px`;
+        // Calculate square size - take the minimum dimension
+        const squareSize = Math.min(containerRect.width, containerRect.height);
+        
+        // Set display size (css pixels) - now square!
+        canvas.style.width = `${squareSize}px`;
+        canvas.style.height = `${squareSize}px`;
         
         // Set actual size in memory (scaled for DPI)
-        canvas.width = containerRect.width * dpr;
-        canvas.height = containerRect.height * dpr;
+        canvas.width = squareSize * dpr;
+        canvas.height = squareSize * dpr;
         
         // Get context and scale all drawing operations
         const ctx = canvas.getContext('2d');
@@ -676,8 +687,8 @@
         
         return {
             ctx,
-            width: containerRect.width,
-            height: containerRect.height
+            width: squareSize,
+            height: squareSize
         };
     }
     
@@ -688,41 +699,43 @@
     let { ctx, width, height } = setupCanvas();
     
     // Define center of the canvas for reference
-    let centerX = width / 2 - 75;
-    let centerY = height / 2 - 75;
+    let centerX = width / 2;
+    let centerY = height / 2;
     
-    // Make points relative to canvas size
-    const scale = Math.min(width, height) / 800; // Base scale on original 600px design
+    // Increase scale to fill more of the container
+    // Using a smaller divisor to make triangles larger
+    const scale = Math.min(width, height) / 500; 
     
     // Fixed vertices A and B (common to both triangles)
+    // Increase the distance between points for larger triangles
     let pointA = { 
-        x: centerX - 150 * scale, 
-        y: centerY - 100 * scale
+        x: 10,
+        y: height / 3
     };
     
     let pointB = { 
-        x: centerX + 150 * scale, 
-        y: centerY + 100 * scale
+        x: 2* width / 3,  
+        y: height - 10
     };
     
     // Adjust initial positions for C and C_star
     let pointC = { 
-        x: centerX + 150 * scale, 
-        y: centerY - 200 * scale,
-        baseX: centerX + 150 * scale,
-        baseY: centerY - 200 * scale,
-        amplitude: 50 * scale,
+        x: 2* width / 3, 
+        y: 10,
+        baseX: 2* width / 3,
+        baseY: 10,
+        amplitude: 50,  // Increased amplitude
         frequency: 0.01,
         phaseX: 0,
         phaseY: Math.PI / 5
     };
     
     let pointCStar = { 
-        x: centerX + 250 * scale, 
-        y: centerY - 150 * scale,
-        baseX: centerX + 250 * scale,
-        baseY: centerY - 150 * scale,
-        amplitude: 50 * scale,
+        x: width - 10, 
+        y: height / 6,
+        baseX: width - 10,
+        baseY: height / 6,
+        amplitude: 50,  // Increased amplitude
         frequency: 0.01,
         phaseX: Math.PI / 5,
         phaseY: Math.PI / 5
@@ -734,7 +747,7 @@
         ctx.clearRect(0, 0, width, height);
         
         // Scale line width based on canvas size
-        ctx.lineWidth = 15 * scale;
+        ctx.lineWidth = 20;  // Slightly thicker lines
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
         
@@ -783,6 +796,32 @@
             pointC.frequency = 0.005 + Math.random() * 0.01;
             pointCStar.frequency = 0.005 + Math.random() * 0.015;
         }
+
+        // Don't exit max width and height
+        if (pointC.x > width - 10) {
+            pointC.x = width - 10;
+        }
+        if (pointC.y > height - 10) {
+            pointC.y = height - 10;
+        }
+        if (pointCStar.x > width - 10) {
+            pointCStar.x = width - 10;
+        }
+        if (pointCStar.y > height - 10) {
+            pointCStar.y = height - 10;
+        }
+        if (pointC.x < 10) {
+            pointC.x = 10;
+        }
+        if (pointC.y < 10) {
+            pointC.y = 10;
+        }
+        if (pointCStar.x < 10) {
+            pointCStar.x = 10;
+        }
+        if (pointCStar.y < 10) {
+            pointCStar.y = 10;
+        }
     }
     
     // Animation loop
@@ -798,21 +837,21 @@
         ({ ctx, width, height } = setupCanvas());
         
         // Update center points
-        centerX = width / 2 - 75;
-        centerY = height / 2 - 75;
+        centerX = width / 2;
+        centerY = height / 2;
         
-        // Update scale
-        const newScale = Math.min(width, height) / 800;
+        // Update scale with new divisor to make triangles larger
+        const newScale = Math.min(width, height) / 500;
         
         // Update all points with new scale and positions
         pointA = { 
-            x: centerX - 150 * newScale, 
-            y: centerY - 100 * newScale
+            x: centerX - 200 * newScale, 
+            y: centerY - 150 * newScale
         };
         
         pointB = { 
-            x: centerX + 150 * newScale, 
-            y: centerY + 100 * newScale
+            x: centerX + 200 * newScale, 
+            y: centerY + 150 * newScale
         };
         
         // Update C and C_star with new positions
@@ -820,9 +859,9 @@
         const cPhaseY = pointC.phaseY;
         pointC = {
             ...pointC,
-            baseX: centerX + 150 * newScale,
-            baseY: centerY - 200 * newScale,
-            amplitude: 50 * newScale,
+            baseX: centerX + 200 * newScale,
+            baseY: centerY - 250 * newScale,
+            amplitude: 70 * newScale,
             phaseX: cPhaseX,
             phaseY: cPhaseY
         };
@@ -831,9 +870,9 @@
         const csPhaseY = pointCStar.phaseY;
         pointCStar = {
             ...pointCStar,
-            baseX: centerX + 250 * newScale,
-            baseY: centerY - 150 * newScale,
-            amplitude: 50 * newScale,
+            baseX: centerX + 300 * newScale,
+            baseY: centerY - 200 * newScale,
+            amplitude: 70 * newScale,
             phaseX: csPhaseX,
             phaseY: csPhaseY
         };
