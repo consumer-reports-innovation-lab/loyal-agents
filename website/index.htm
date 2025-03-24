@@ -68,6 +68,7 @@
             padding: 80px 0;
         }
         
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -100,6 +101,7 @@
             color: white;
         }
         
+        /* Section Headers */
         .section-title {
             text-align: center;
             margin-bottom: 50px;
@@ -125,7 +127,7 @@
             margin: 0 auto 40px;
         }
         
-        /* Alternating section backgrounds */
+        /* Section Backgrounds */
         .bg-light {
             background-color: #f9f9f9;
         }
@@ -137,78 +139,6 @@
         
         .bg-dark h2, .bg-dark h3 {
             color: white;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-area {
-            display: flex;
-            align-items: center;
-        }
-        
-        .main-logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        
-        .partner-logos img {
-            height: 30px;
-            margin-left: 15px;
-        }
-        
-        .tagline {
-            display: none;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: #051A33;
-            position: relative;
-        }
-        
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, #3A8DC7, #06AE3C);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover:after {
-            width: 100%;
-        }
-        
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
         }
         
         /* Hero Section */
@@ -271,7 +201,7 @@
             object-fit: contain;
         }
         
-        /* Triangle container */
+        /* Triangle animation container */
         #triangleContainer {
             position: absolute;
             right: 0;
@@ -281,7 +211,6 @@
             z-index: 1;
         }
         
-        /* Canvas positioning */
         canvas {
             position: absolute;
             right: 0;
@@ -318,52 +247,9 @@
             color: #3A8DC7;
         }
         
-        /* Partners & Leadership */
+        /* Partners Section */
         .partners {
             text-align: center;
-        }
-        
-        .leadership-profile {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            border-radius: 10px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .profile-info h3 {
-            margin-bottom: 10px;
-        }
-        
-        /* Why It Matters */
-        .matters-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .matters-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-        }
-        
-        .matters-card h3 {
-            color: #3A8DC7;
-            margin-bottom: 15px;
         }
         
         /* Approach Section */
@@ -443,108 +329,9 @@
             font-style: italic;
         }
         
-        /* Benefits Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .benefit-card {
-            padding: 30px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: transform 0.3s;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .benefit-card h3 {
-            color: #3A8DC7;
-            margin-bottom: 15px;
-        }
-        
-        /* Become a Stakeholder */
-        .stakeholder-content {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Resources Section */
+        .content {
             text-align: center;
-        }
-        
-        .key-details {
-            margin: 40px 0;
-            text-align: left;
-        }
-        
-        .key-details ul {
-            list-style-type: none;
-        }
-        
-        .key-details ul li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .key-details ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #06AE3C;
-            font-weight: bold;
-        }
-        
-        /* Mailing List Signup */
-        .signup-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        .privacy-check {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .privacy-check input {
-            margin-top: 5px;
         }
         
         /* Contact Section */
@@ -556,72 +343,6 @@
         
         .contact-info {
             margin-top: 30px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #051A33;
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: rgba(255,255,255,0.8);
-        }
-        
-        .footer-column ul li a:hover {
-            color: #06AE3C;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: #3A8DC7;
-            color: white;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
         }
         
         /* Back to top button */
@@ -674,51 +395,6 @@
         }
         
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .mobile-toggle {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-            
-            nav {
-                width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s;
-            }
-            
-            nav.open {
-                max-height: 500px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 20px 0;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .form-row {
-                flex-direction: column;
-            }
-            
-            .hero-content {
-                padding: 60px 0 100px;
-            }
-            
-            .leadership-profile {
-                flex-direction: column;
-                text-align: center;
-            }
-            
             .partner-logo {
                 height: 30px;
             }
@@ -728,6 +404,44 @@
                 margin-bottom: 30px;
                 height: 30px;
                 max-height: 30px;
+            }
+            
+            .hero-content {
+                padding: 60px 0 100px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .about-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .workstream-cards {
+                gap: 20px;
+            }
+            
+            /* Adjust content to be more readable on mobile */
+            .section-subtitle, 
+            .about-card p, 
+            .approach-block p, 
+            .workstream-card p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+            
+            /* Add touch scrolling for horizontal content */
+            .content div {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 15px;
+            }
+            
+            /* Make sure form elements are mobile-friendly */
+            input, select, textarea, button {
+                font-size: 16px; /* Prevents iOS zoom on focus */
             }
         }
         
@@ -753,30 +467,9 @@
                 font-size: 1.8rem;
             }
         }
-
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <!-- <header id="top">
-        <div class="container header-container">
-            <div class="tagline">
-                <p>Building a Trusted AI Future: Consumer-First, Secure by Design</p>
-            </div>
-            <div class="mobile-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div> -->
-            <!-- <nav id="mainNav">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#why-it-matters">Why It Matters</a></li>
-                    <li><a href="#approach">Our Approach</a></li>
-                    <li><a href="#workstreams">Workstreams</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header> -->
-
     <!-- Hero Section with Dynamic Triangles -->
     <section class="hero">
         <div class="hero-background"></div>
@@ -798,7 +491,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About the Initiative -->
     <section id="about" class="bg-light">
         <div class="container">
             <h2 class="section-title">About the Initiative</h2>
@@ -838,45 +531,15 @@
         </div>
     </section>
 
-    <!-- Partners & Leadership Section -->
+    <!-- Leadership & Expertise -->
     <section id="partners" class="partners">
         <div class="container">
             <h2 class="section-title">Led by Experts in Technology, Consumer Advocacy, and Digital Economy</h2>
             <p class="section-subtitle">Under the direction of Professor Alex 'Sandy' Pentland, with essential funding and resources provided by Project Liberty Institute, the Stanford Digital Economy Lab, and Code-X.</p>
-            
-            <!-- <div class="leadership-profile">
-                <img class="profile-image" src="/api/placeholder/120/120" alt="Professor Alex Pentland">
-                <div class="profile-info">
-                    <h3>Professor Alex "Sandy" Pentland</h3>
-                    <p>Professor Pentland is a pioneering researcher and entrepreneur. He directs the MIT Connection Science and Human Dynamics labs and previously helped create and direct the MIT Media Lab.</p>
-                    <p>His research has been featured in Nature, Science, and Harvard Business Review, among others, and he is a founding member of advisory boards for the United Nations, Google, and AT&T.</p>
-                </div>
-            </div> -->
         </div>
     </section>
 
-    <!-- Why It Matters Section
-    <section id="why-it-matters" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">The Critical Need for Trusted AI</h2>
-            <div class="matters-grid">
-                <div class="matters-card">
-                    <h3>Rapid AI Adoption</h3>
-                    <p>AI agents are rapidly entering commerce, finance, healthcare, and other sectors, creating an urgent need for interoperable, secure frameworks that grant users real control.</p>
-                </div>
-                <div class="matters-card">
-                    <h3>Consumer Trust & Loyalty</h3>
-                    <p>Users need assurances that AI agents will protect their private information, act ethically, and deliver genuine value—building brand trust and customer loyalty.</p>
-                </div>
-                <div class="matters-card">
-                    <h3>Regulatory & Business Alignment</h3>
-                    <p>By uniting leading companies with academic and consumer advocacy groups, we're shaping regulations and technical standards that protect consumers while fostering innovation.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Our Approach Section -->
+    <!-- Our Approach -->
     <section id="approach" class="bg-dark">
         <div class="container">
             <h2 class="section-title">How We're Building Trusted AI Agents</h2>
@@ -906,7 +569,7 @@
         </div>
     </section>
 
-    <!-- Workstreams Section -->
+    <!-- Workstreams -->
     <section id="workstreams">
         <div class="container">
             <h2 class="section-title">Our Workstreams</h2>
@@ -938,33 +601,7 @@
         </div>
     </section>
 
-    <!-- Benefits Section
-    <section id="benefits" class="bg-light">
-        <div class="container">
-            <h2 class="section-title">Benefits for Corporate Stakeholders</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Shape Standards & Policy</h3>
-                    <p>Provide feedback and insights that may shape standards around AI authentication, data protection, and user experience before they're mandated by regulation.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Showcase Innovation</h3>
-                    <p>Pilot open-source consumer-authorized AI solutions and highlight cutting-edge offerings that prioritize user trust, brand loyalty, and market competitiveness.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Accelerate Adoption</h3>
-                    <p>Engage with Stanford researchers, CR engineers, and other leading organizations to test and refine AI-driven solutions, expediting deployment and consumer acceptance.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Connect to Expert Networks</h3>
-                    <p>Gain opportunities to experience peer learning, specialized workshops, and high-profile thought leadership events hosted by Stanford's Digital Economy Lab and CR.</p>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- Become a Stakeholder Section -->
+    <!-- Resources -->
     <section id="more-info" class="bg-dark">
         <div class="container">
             <div class="content">
@@ -981,14 +618,14 @@
         </div>
     </section>
 
-    <!-- Mailing List Signup Section -->
+    <!-- Mailing List Signup -->
     <section id="mailing-list">
         <div class="container">
             <div class="ml-embedded" data-form="dn5jUv"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Information -->
     <section id="contact" class="bg-light">
         <div class="container">
             <div class="contact-content">
@@ -997,7 +634,7 @@
                 
                 <div class="contact-info">
                     <p><a href="mailto:aiforconsumers@stanford.edu">aiforconsumers@stanford.edu</a></p> 
-                    <p></p>Or for directed inquiries, please contact:</p>
+                    <p>Or for directed inquiries, please contact:</p>
                     <p>Administrative: <a href="https://hai.stanford.edu/people/christie-ko">Christie Ko</a>, Executive Director, Stanford Digital Economy Lab</p>
                     <p>Technical: <a href="https://tobin.page">Tobin South</a>, Research Lead, Stanford & MIT</p>
                 </div>
@@ -1008,15 +645,6 @@
             <i class="fas fa-arrow-up"></i>
         </div>
     </section>
-
-    <!-- Footer -->
-    <!-- <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Stanford University</p>
-            </div>
-        </div>
-    </footer> -->
 
    
 </body>
