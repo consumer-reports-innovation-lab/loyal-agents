@@ -369,9 +369,21 @@
         /* Approach Section */
         .approach-blocks {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-bottom: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .approach-blocks {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .approach-blocks {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
         .approach-block {
@@ -389,7 +401,8 @@
 
         .approach-block p {
             color: #051A33;
-        
+        }
+
         .open-source {
             text-align: center;
             margin-top: 50px;
@@ -768,10 +781,6 @@
     <section class="hero">
         <div class="hero-background"></div>
         <div id="triangleContainer"></div>
-        <script type="module">
-            import { initTriangleAnimation } from './triangleAnimation.js';
-            initTriangleAnimation('triangleContainer');
-        </script>
         <div class="container">
             <div class="hero-content">
                 <div class="logo-container">
@@ -956,21 +965,18 @@
     </section> -->
 
     <!-- Become a Stakeholder Section -->
-    <section id="stakeholder" class="bg-dark">
+    <section id="more-info" class="bg-dark">
         <div class="container">
-            <div class="stakeholder-content">
-                <h2 class="section-title">How to Participate</h2>
-                <p>We invite organizations that recognize the transformative potential of consumer-authorized AI agents and aspire to shape the future of agentic commerce to support this effort.</p>
-                
-                <div class="key-details">
-                    <ul>
-                        <li><strong>Commitment:</strong> Each stakeholder provides financial support of $500K per year for 2 years</li>
-                        <li><strong>Governance:</strong> The Initiative is co-led by Stanford and Consumer Reports, with an advisory board comprising industry representatives, policy experts, and consumer advocates</li>
-                        <li><strong>Workstreams:</strong> Organizations can choose any combination of workstreams as priorities for involvement</li>
-                    </ul>
+            <div class="content">
+                <h2 class="section-title">Read More</h2>
+                <p>Want to learn more about what we've been working on? Here's some resources to dive deeper.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                    <a href="https://arxiv.org/pdf/2501.09674v1" class="btn btn-primary" style="background-color: #8C1515;"><i class="fas fa-file-pdf" style="margin-right: 8px;"></i> Whitepaper on Authenticated AI Agents</a>
+                    <a href="https://innovation.consumerreports.org/initiatives/permission-slip/" class="btn btn-primary" style="background-color: #06AE3C; color: #fff;">
+                        <img src="./images/cr_logo.svg" alt="CR Logo" style="height: 15px; margin-right: 8px; filter: brightness(0) invert(1);"> Permission Slip: Consumer Loyal AI in Action
+                    </a>
+                    <a href="" class="btn btn-primary" style="background-color: #24292e;"><i class="fab fa-github" style="margin-right: 8px;"></i>Examples on Github (forthcoming)</a>
                 </div>
-                
-                <a href="#contact" class="btn btn-primary">Contact Us to Become a Stakeholder</a>
             </div>
         </div>
     </section>
