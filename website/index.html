@@ -474,6 +474,155 @@
                 font-size: 1.8rem;
             }
         }
+
+        /* Carousel Styles */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            margin: 40px 0;
+            position: relative;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 20px;
+            animation: scroll 30s linear infinite;
+            width: fit-content;
+            padding: 10px 0;
+        }
+
+        .carousel:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Create a wrapper for the duplicated content */
+        .carousel-wrapper {
+            display: flex;
+            width: fit-content;
+        }
+
+        /* Update the animation to create a seamless loop */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Team Member Styles */
+        .team-member {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            max-width: 100%;
+            aspect-ratio: 1/1;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .team-member-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-member:hover .team-member-info {
+            opacity: 1;
+        }
+
+        .team-member:hover img {
+            filter: brightness(0.7);
+        }
+
+        .team-member-info h3 {
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Partner Logo Styles */
+        .partners-carousel .carousel-item {
+            width: 200px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .partners-carousel img {
+            max-width: 100%;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .team-member {
+                width: 150px;
+                height: 150px;
+            }
+
+            .partners-carousel .carousel-item {
+                width: 150px;
+                min-height: 75px;
+            }
+            
+            .partners-carousel img {
+                max-height: 75px;
+            }
+        }
+
+        /* Add media query for large screens */
+        @media (min-width: 1400px) {
+            .carousel-container {
+                max-width: 1400px;
+            }
+            
+            .carousel-item {
+                max-width: 300px;
+            }
+            
+            .partners-carousel .carousel-item {
+                width: 200px;
+                min-height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -503,7 +652,7 @@
     <section id="about" class="bg-light">
         <div class="container">
             <h2 class="section-title">About the Initiative</h2>
-            <p class="section-subtitle" style="text-align: justify;">Stanford's Digital Economy Lab and Consumer Reports Innovation Lab (CR) are joining forces to create a forward-looking research initiative to develop, test and deploy agentic AI frameworks in consumer-centric values. . By bringing together a community oftechnologists, researchers and consumer advocates across industry, academia, and civil society, this initiative will tackle the complex challenge of ensuring that AI agents act securely, transparently, and in the user's best interests. The Initiative will focus on,developing sandboxes for prototyping next-generation patterns, learning from applied research andultimately demonstrating a more dynamic, competitive marketplace driven by "loyal by design" AI.
+            <p class="section-subtitle" style="text-align: justify;">Stanford's Digital Economy Lab and Consumer Reports Innovation Lab (CR) are joining forces to create a forward-looking research initiative to develop, test and deploy agentic AI frameworks in consumer-centric values. . By bringing together a community of technologists, researchers and consumer advocates across industry, academia, and civil society, this initiative will tackle the complex challenge of ensuring that AI agents act securely, transparently, and in the user's best interests. The Initiative will focus on, developing sandboxes for prototyping next-generation patterns, learning from applied research and ultimately demonstrating a more dynamic, competitive marketplace driven by "loyal by design" AI.
             </p>
 
             
@@ -513,7 +662,7 @@
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>Model Best Practices</h3>
-                    <p>Provide feedback and insights that may shape standards around AI authentication, data protection and user loyalty – to influence current best practice and future regulation. All of this in collaboration with leading industry organizations.</p>
+                    <p>Provide feedback and insights to shape standards around AI authentication, data protection and user loyalty.</p>
                 </div>
                 <div class="about-card">
                     <div class="about-icon">
@@ -543,11 +692,157 @@
     <!-- Leadership & Expertise -->
     <section id="partners" class="partners">
         <div class="container">
-            <h2 class="section-title">Leadership & Expertise</h2>
-            <p class="section-subtitle">Led by leading experts in technology, consumer advocacy, and digital economy, this initiative will be supported by leading industry organizations.</p>
+            <h2 class="section-title">Leaders, Partners, & Collaborators</h2>
+            <p class="section-subtitle">This effort is led by leading experts in technology, consumer advocacy, and digital economy, and partnered with leading organizations and collaborators in creating a safer future.</p>
+            
+            <!-- Team Members Carousel -->
+            <div class="carousel-container">
+                <div class="carousel team-carousel">
+                    <div class="carousel-item">
+                        <a href="https://www.dazzagreenwood.com/p/ai-agents-x-law-initiative" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/dazza.jpg" alt="Dazza Greenwood">
+                                <div class="team-member-info">
+                                    <h3>Dazza Greenwood</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://innovation.consumerreports.org/team/leah-hunter/" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/leah_hunter.jpg" alt="Leah Hunter">
+                                <div class="team-member-info">
+                                    <h3>Leah Hunter</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://innovation.consumerreports.org/team/ginny-fahs/" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/ginny-fahs.webp" alt="Ginny Fahs">
+                                <div class="team-member-info">
+                                    <h3>Ginny Fahs</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://tobin.south.fyi" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/Tobin 2024 Face.jpg" alt="Tobin South">
+                                <div class="team-member-info">
+                                    <h3>Tobin South</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://en.wikipedia.org/wiki/Alex_Pentland" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/sandy square.jpg" alt="Prof. Sandy Pentland">
+                                <div class="team-member-info">
+                                    <h3>Sandy Pentland</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://innovation.consumerreports.org/team/ben-moskowitz/" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/Benjamin_Moskowitz.webp" alt="Benjamin Moskowitz">
+                                <div class="team-member-info">
+                                    <h3>Benjamin Moskowitz</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://en.wikipedia.org/wiki/Erik_Brynjolfsson" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/erik-brynjolfsson.jpg" alt="Erik Brynjolfsson">
+                                <div class="team-member-info">
+                                    <h3>Erik Brynjolfsson</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://hai.stanford.edu/people/christie-ko" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/christie.jpg" alt="Christie Ko">
+                                <div class="team-member-info">
+                                    <h3>Christie Ko</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://jiaxin-pei.github.io/" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/jiaxin_pei.png" alt="Jiaxin Pei">
+                                <div class="team-member-info">
+                                    <h3>Jiaxin Pei</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partners Carousel -->
+            <div class="carousel-container">
+                <div class="carousel partners-carousel">
+                    <div class="carousel-item">
+                        <a href="https://www.consumerreports.org" target="_blank">
+                            <img src="images/CR_black.png" alt="Consumer Reports">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.genesys.com" target="_blank">
+                            <img src="images/Genesys.png" alt="Genesys">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.pli.edu" target="_blank">
+                            <img src="images/PLI.png" alt="PLI">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.mit.edu" target="_blank">
+                            <img src="images/MIT_logo.svg" alt="MIT">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.del.stanford.edu" target="_blank">
+                            <img src="images/DEL-black.png" alt="Digital Economy Lab">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://hai.stanford.edu" target="_blank">
+                            <img src="images/stanford-human-centered-artificial-intelligence-logo.png.webp" alt="Stanford HAI">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://www.stanford.edu" target="_blank">
+                            <img src="images/stanford-university-stacked.webp" alt="Stanford University">
+                        </a>
+                    </div>
+                    <!-- <div class="carousel-item">
+                        <a href="https://workos.com" target="_blank">
+                            <img src="images/WorkOS_Lockup_Full_Color.svg" alt="WorkOS">
+                        </a>
+                    </div> -->
+                    <div class="carousel-item">
+                        <a href="https://openid.net" target="_blank">
+                            <img src="images/oidf.png" alt="Open ID Foundation">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
 
     <!-- Contact Information -->
     <section id="contact" class="bg-light">
@@ -559,7 +854,7 @@
                 <div class="contact-info">
                     <p><a href="mailto:aiforconsumers@stanford.edu">aiforconsumers@stanford.edu</a></p> 
                     <p>Or for directed inquiries, please contact:</p>
-                    <p>Stanford’s Digital Economy Lab:: <a href="https://hai.stanford.edu/people/christie-ko">Christie Ko</a>, Executive Director</p>
+                    <p>Stanford's Digital Economy Lab:: <a href="https://hai.stanford.edu/people/christie-ko">Christie Ko</a>, Executive Director</p>
                     <p>Technical queries: <a href="https://tobin.page">Tobin South</a>, Research Lead, Stanford</p>
                     <p>Consumer Reports: <a href="https://innovation.consumerreports.org/team/leah-hunter/">Leah Hunter</a>, Director, Innovation Lab</p>
                 </div>
@@ -800,5 +1095,25 @@
 } 
 
 initTriangleAnimation('triangleContainer');
+
+// Function to duplicate carousel items
+function duplicateCarouselItems() {
+    const carousels = document.querySelectorAll('.carousel');
+    
+    carousels.forEach(carousel => {
+        // Create a wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'carousel-wrapper';
+        
+        // Get all items
+        const items = carousel.innerHTML;
+        
+        // Set the carousel content to include duplicated items
+        carousel.innerHTML = items + items;
+    });
+}
+
+// Run when the page loads
+document.addEventListener('DOMContentLoaded', duplicateCarouselItems);
 </script>
 </html>
