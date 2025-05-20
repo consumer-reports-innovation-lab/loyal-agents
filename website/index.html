@@ -34,6 +34,8 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -144,7 +146,7 @@
         /* Hero Section (Updated Layout) */
         .hero {
             position: relative;
-            min-height: 80vh;
+            /* min-height: 80vh; */
             overflow: hidden;
             padding: 0;
         }
@@ -154,7 +156,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            min-height: 80vh;
+            /* min-height: 80vh; */
         }
         
         .hero-content-container {
@@ -203,7 +205,7 @@
             flex: 1;
             position: relative;
             height: 100%;
-            min-height: 80vh;
+            /* min-height: 80vh; */
             z-index: 1;
             display: flex;
             align-items: center;
@@ -245,6 +247,7 @@
         /* Partners Section */
         .partners {
             text-align: center;
+            overflow: hidden;
         }
         
         /* Approach Section */
@@ -388,6 +391,7 @@
                 left: 0;
                 width: 100%;
                 opacity: 0.4;
+                height: 100%;
             }
             
             .hero-title {
@@ -477,13 +481,15 @@
 
         /* Carousel Styles */
         .carousel-container {
-            width: 100%;
+            width: 100vw;
             overflow: hidden;
             margin: 40px 0;
+            left: 50%;
+            right: 50%;
             position: relative;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 0 20px;
         }
 
         .carousel {
@@ -610,10 +616,7 @@
 
         /* Add media query for large screens */
         @media (min-width: 1400px) {
-            .carousel-container {
-                max-width: 1400px;
-            }
-            
+    
             .carousel-item {
                 max-width: 300px;
             }
@@ -637,10 +640,10 @@
                 <h1 class="hero-title">Loyal Agents</h1>
                 <h2 class="hero-subtitle">Building the future of the consumer experience in an agentic world</h2>
                 <p class="hero-subtitle">A Stanford + Consumer Reports Initiative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents</p>
-                <div class="hero-buttons">
+                <!-- <div class="hero-buttons">
                     <a href="#stakeholder" class="btn btn-primary">Become a Stakeholder</a>
                     <a href="#mailing-list" class="btn btn-secondary">Join Our Mailing List</a>
-                </div>
+                </div> -->
             </div>
             <div class="hero-triangle-container" id="triangleContainer">
                 <!-- Triangle animation will go here -->
@@ -882,10 +885,13 @@
         // Get device pixel ratio for high DPI displays
         const dpr = window.devicePixelRatio || 1;
         
-        // Calculate square size - take the minimum dimension
-        const squareSize = Math.min(containerRect.width, containerRect.height);
+        // Set minimum dimensions to ensure canvas is visible
+        const minSize = 300; // Minimum size in pixels
         
-        // Set display size (css pixels) - now square!
+        // Calculate square size - take the maximum of container size and minimum size
+        const squareSize = Math.max(Math.min(containerRect.width, containerRect.height), minSize);
+        
+        // Set display size (css pixels)
         canvas.style.width = `${squareSize}px`;
         canvas.style.height = `${squareSize}px`;
         
