@@ -626,6 +626,165 @@
                 min-height: 100px;
             }
         }
+
+        /* Publications Section Styles */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .publication-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .publication-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(58, 141, 199, 0.1) 0%, rgba(6, 174, 60, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .publication-card:hover::before {
+            opacity: 1;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(58, 141, 199, 0.5);
+            box-shadow: 0 10px 30px rgba(58, 141, 199, 0.2);
+        }
+
+        .publication-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .publication-icon {
+            font-size: 3rem;
+            color: #3A8DC7;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-card:hover .publication-icon {
+            transform: scale(1.1);
+        }
+
+        .publication-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .publication-authors {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+
+        .publication-venue {
+            color: #06AE3C;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .publication-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(58, 141, 199, 0.2);
+            border: 1px solid #3A8DC7;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .publication-link:hover {
+            background: #3A8DC7;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .publication-link i {
+            font-size: 0.9rem;
+        }
+
+        .open-source-note {
+            text-align: center;
+            padding: 30px;
+            background: rgba(6, 174, 60, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(6, 174, 60, 0.3);
+            margin-top: 50px;
+        }
+
+        .open-source-note i {
+            font-size: 2.5rem;
+            color: #06AE3C;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .open-source-note p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Responsive adjustments for publications */
+        @media (max-width: 768px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .publication-card {
+                padding: 30px 20px;
+            }
+
+            .publication-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .publication-authors {
+                font-size: 0.95rem;
+            }
+
+            .open-source-note {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -853,6 +1012,105 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications & Open-source Projects -->
+    <section id="publications" class="bg-dark">
+        <div class="container">
+            <h2 class="section-title">Publications & Open-source Projects</h2>
+            <p class="section-subtitle">Our research and development efforts are contributing to the advancement of loyal AI agents through academic publications and open-source contributions.</p>
+            
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Loyal AI Agents</h3>
+                    <p class="publication-authors">Research on building AI agents that act in users' best interests</p>
+                    <p class="publication-venue">arXiv:2506.00073</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2506.00073" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Building and Evaluating Online Judge Agents</h3>
+                    <p class="publication-authors">Framework for evaluating AI agent capabilities and safety</p>
+                    <p class="publication-venue">arXiv:2501.09674</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2501.09674" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>HCP Demo</h3>
+                    <p class="publication-authors">Open-source implementation demonstrating secure agent communication protocols</p>
+                    <p class="publication-venue">GitHub Repository</p>
+                    <div class="publication-links">
+                        <a href="https://github.com/tobinsouth/hcp-demo" target="_blank" class="publication-link">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Agents Talking to Agents (A2A)</h3>
+                    <p class="publication-authors">Reshaping the marketplace and your power</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/agents-talking-to-agents-a2a-reshaping-the-marketplace-and-your-power/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>AI News: Marketplace Roundup</h3>
+                    <p class="publication-authors">Autonomous shopping & the agent economy</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/ai-news-marketplace-roundup-autonomous-shopping-the-agent-economy/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>My Agent Messed Up</h3>
+                    <p class="publication-authors">Understanding errors and recourse in AI transactions</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/my-agent-messed-up-understanding-errors-and-recourse-in-ai-transactions/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="open-source-note">
+                <i class="fas fa-code-branch"></i>
+                <p>More publications and open-source projects coming soon as our initiative progresses.</p>
             </div>
         </div>
     </section>
