@@ -1835,58 +1835,30 @@ function initAutoScrollCarousels() {
     const carousels = document.querySelectorAll('.carousel-container');
     
     carousels.forEach(carousel => {
-        let isScrolling = false;
-        let scrollTimeout;
-        
-        // Auto-scroll function
-        function autoScroll() {
-            if (!isScrolling) {
-                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                if (carousel.scrollLeft >= maxScroll) {
-                    carousel.scrollLeft = 0; // Reset to start
-                } else {
-                    carousel.scrollLeft += 1; // Scroll 1px at a time for smooth movement
-                }
-            }
-        }
-        
-        // Start auto-scrolling
-        const autoScrollInterval = setInterval(autoScroll, 30); // 30ms for smooth 60fps-like scrolling
-        
-        // Pause auto-scroll when user interacts
-        carousel.addEventListener('scroll', () => {
-            isScrolling = true;
-            clearTimeout(scrollTimeout);
+        // Wait for content to load then start auto-scroll
+        setTimeout(() => {
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
             
-            // Resume auto-scroll after 3 seconds of no user interaction
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-            }, 3000);
-        });
-        
-        // Also pause on hover/touch
-        carousel.addEventListener('mouseenter', () => {
-            isScrolling = true;
-        });
-        
-        carousel.addEventListener('mouseleave', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-            }, 1000);
-        });
-        
-        // Touch events for mobile
-        carousel.addEventListener('touchstart', () => {
-            isScrolling = true;
-        });
-        
-        carousel.addEventListener('touchend', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                isScrolling = false;
-            }, 3000);
-        });
+            // Only start auto-scroll if there's content to scroll
+            if (maxScroll > 10) {
+                // Reset to beginning
+                carousel.scrollLeft = 0;
+                
+                // Auto-scroll function - simple continuous scroll
+                function autoScroll() {
+                    const currentMaxScroll = carousel.scrollWidth - carousel.clientWidth;
+                    if (carousel.scrollLeft >= currentMaxScroll - 5) {
+                        // Reset to start
+                        carousel.scrollLeft = 0;
+                    } else {
+                        carousel.scrollLeft += 1; // Scroll 1px at a time
+                    }
+                }
+                
+                // Start auto-scrolling - continuous without interruption
+                setInterval(autoScroll, 30); // 30ms for smooth scrolling
+            }
+        }, 500); // Small delay to ensure content is loaded
     });
 }
 
