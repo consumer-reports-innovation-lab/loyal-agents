@@ -321,10 +321,12 @@
         .bg-dark::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            width: 120%;
+            height: 120%;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(58, 141, 199, 0.1) 0%, transparent 40%),
                 radial-gradient(circle at 80% 20%, rgba(6, 174, 60, 0.1) 0%, transparent 40%),
@@ -816,7 +818,8 @@
         /* Carousel Styles */
         .carousel-container {
             width: 100vw;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             margin: 40px 0;
             left: 50%;
             right: 50%;
@@ -824,18 +827,33 @@
             margin-left: -50vw;
             margin-right: -50vw;
             padding: 0 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: rgba(58, 141, 199, 0.5);
+            border-radius: 4px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(58, 141, 199, 0.8);
         }
 
         .carousel {
             display: flex;
             gap: 20px;
-            animation: scroll 30s linear infinite;
             width: fit-content;
             padding: 10px 0;
-        }
-
-        .carousel:hover {
-            animation-play-state: paused;
         }
 
         .carousel-item {
@@ -1392,9 +1410,9 @@
                     <div class="publication-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Loyal AI Agents</h3>
-                    <p class="publication-authors">Research on building AI agents that act in users' best interests</p>
-                    <p class="publication-venue">arXiv:2506.00073</p>
+                    <h3>Agent-to-Agent Negotiations</h3>
+                    <p class="publication-authors">The automated but risky game: Modeling agent-to-agent negotiations and transactions in consumer markets.</p>
+                    <p class="publication-venue">Research Paper</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2506.00073" target="_blank" class="publication-link">
                             <i class="fas fa-external-link-alt"></i> Read Paper
@@ -1406,11 +1424,25 @@
                     <div class="publication-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Building and Evaluating Online Judge Agents</h3>
-                    <p class="publication-authors">Framework for evaluating AI agent capabilities and safety</p>
-                    <p class="publication-venue">arXiv:2501.09674</p>
+                    <h3>Authenticated Delegation for AI Agents</h3>
+                    <p class="publication-authors">How to delegate authority and authenticate AI agents for a more secure and reliable AI agent ecosystem.</p>
+                    <p class="publication-venue">Research Paper</p>
                     <div class="publication-links">
                         <a href="https://arxiv.org/pdf/2501.09674" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Human Control Protocol</h3>
+                    <p class="publication-authors">Robust AI personalization will require a human context protocol for interoperable preference sharing between AI models.</p>
+                    <p class="publication-venue">Research Paper</p>
+                    <div class="publication-links">
+                        <a href="https://drive.google.com/file/d/1unjGAMJ6A7bbO-FTcTciz52PDa36fa5r/view?usp=sharing" target="_blank" class="publication-link">
                             <i class="fas fa-external-link-alt"></i> Read Paper
                         </a>
                     </div>
@@ -1421,7 +1453,7 @@
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>HCP Demo</h3>
-                    <p class="publication-authors">Open-source implementation demonstrating secure agent communication protocols</p>
+                    <p class="publication-authors">Open-source implementation demonstrating portable, secure, and interoperable preference information sharing between AI agents.</p>
                     <p class="publication-venue">GitHub Repository</p>
                     <div class="publication-links">
                         <a href="https://github.com/tobinsouth/hcp-demo" target="_blank" class="publication-link">
@@ -1436,7 +1468,7 @@
                     </div>
                     <h3>Agents Talking to Agents (A2A)</h3>
                     <p class="publication-authors">Reshaping the marketplace and your power</p>
-                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
                     <div class="publication-links">
                         <a href="https://innovation.consumerreports.org/agents-talking-to-agents-a2a-reshaping-the-marketplace-and-your-power/" target="_blank" class="publication-link">
                             <i class="fas fa-external-link-alt"></i> Read Article
@@ -1450,7 +1482,7 @@
                     </div>
                     <h3>AI News: Marketplace Roundup</h3>
                     <p class="publication-authors">Autonomous shopping & the agent economy</p>
-                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
                     <div class="publication-links">
                         <a href="https://innovation.consumerreports.org/ai-news-marketplace-roundup-autonomous-shopping-the-agent-economy/" target="_blank" class="publication-link">
                             <i class="fas fa-external-link-alt"></i> Read Article
@@ -1463,8 +1495,8 @@
                         <i class="fas fa-newspaper"></i>
                     </div>
                     <h3>My Agent Messed Up</h3>
-                    <p class="publication-authors">Understanding errors and recourse in AI transactions</p>
-                    <p class="publication-venue">Consumer Reports Innovation Lab</p>
+                    <p class="publication-authors">Understanding errors and recourse in AI transactions with lessons from Stanford CodeX's AI Agents x Law Workshop</p>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
                     <div class="publication-links">
                         <a href="https://innovation.consumerreports.org/my-agent-messed-up-understanding-errors-and-recourse-in-ai-transactions/" target="_blank" class="publication-link">
                             <i class="fas fa-external-link-alt"></i> Read Article
@@ -1797,6 +1829,69 @@ window.addEventListener('scroll', () => {
 } 
 
 initTriangleAnimation('triangleContainer');
+
+// Auto-scroll carousel functionality
+function initAutoScrollCarousels() {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(carousel => {
+        let isScrolling = false;
+        let scrollTimeout;
+        
+        // Auto-scroll function
+        function autoScroll() {
+            if (!isScrolling) {
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+                if (carousel.scrollLeft >= maxScroll) {
+                    carousel.scrollLeft = 0; // Reset to start
+                } else {
+                    carousel.scrollLeft += 1; // Scroll 1px at a time for smooth movement
+                }
+            }
+        }
+        
+        // Start auto-scrolling
+        const autoScrollInterval = setInterval(autoScroll, 30); // 30ms for smooth 60fps-like scrolling
+        
+        // Pause auto-scroll when user interacts
+        carousel.addEventListener('scroll', () => {
+            isScrolling = true;
+            clearTimeout(scrollTimeout);
+            
+            // Resume auto-scroll after 3 seconds of no user interaction
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 3000);
+        });
+        
+        // Also pause on hover/touch
+        carousel.addEventListener('mouseenter', () => {
+            isScrolling = true;
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        });
+        
+        // Touch events for mobile
+        carousel.addEventListener('touchstart', () => {
+            isScrolling = true;
+        });
+        
+        carousel.addEventListener('touchend', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isScrolling = false;
+            }, 3000);
+        });
+    });
+}
+
+// Initialize auto-scroll when page loads
+document.addEventListener('DOMContentLoaded', initAutoScrollCarousels);
 
 // Function to duplicate carousel items
 function duplicateCarouselItems() {
