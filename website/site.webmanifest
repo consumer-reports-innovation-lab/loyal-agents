@@ -1,0 +1,22 @@
+{
+    "name": "Loyal Agents Initiative",
+    "short_name": "Loyal Agents",
+    "description": "A Stanford + Consumer Reports Initiative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#3A8DC7",
+    "background_color": "#051A33",
+    "display": "standalone",
+    "start_url": "/",
+    "orientation": "portrait-primary"
+}
