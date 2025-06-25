@@ -537,6 +537,47 @@
             color: var(--text-secondary);
         }
         
+        /* Sneak Peak Section - Smaller styling */
+        #sneak-peak {
+            padding: 60px 0; /* Reduced from default 100px */
+        }
+        
+        #sneak-peak .section-title {
+            margin-bottom: 30px; /* Reduced from 60px */
+            font-size: clamp(1.5rem, 3vw, 2.5rem); /* Smaller than default */
+        }
+        
+        #sneak-peak .section-subtitle {
+            margin-bottom: 40px; /* Reduced from 60px */
+            font-size: 1.1rem; /* Smaller than default 1.25rem */
+        }
+        
+        #sneak-peak .about-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min width */
+            gap: 25px; /* Reduced from 40px */
+            margin-top: 30px; /* Reduced from 60px */
+        }
+        
+        #sneak-peak .about-card {
+            padding: 30px 20px; /* Reduced from 50px 30px */
+            border-radius: 16px; /* Reduced from 24px */
+        }
+        
+        #sneak-peak .about-icon {
+            font-size: 2rem; /* Reduced from 3rem */
+            margin-bottom: 15px; /* Reduced from 25px */
+        }
+        
+        #sneak-peak .about-card h3 {
+            font-size: 1.1rem; /* Smaller than default */
+            margin-bottom: 10px; /* Reduced from 20px */
+        }
+        
+        #sneak-peak .about-card p {
+            font-size: 0.95rem; /* Smaller text */
+            line-height: 1.5; /* Tighter line height */
+        }
+        
         /* Partners Section */
         .partners {
             text-align: center;
@@ -1188,7 +1229,7 @@
             </p>
 
             
-            <div class="about-grid">
+            <!-- <div class="about-grid">
                 <div class="about-card">
                     <div class="about-icon">
                         <i class="fas fa-code-branch"></i>
@@ -1210,14 +1251,7 @@
                     <h3>Sandbox Testing & Evals</h3>
                     <p>Test AI agents and MCP servers in sandbox environments to ensure they meet safety requirements and consumer protection norms.</p>
                 </div>
-                <!-- <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Consumer Protection</h3>
-                    <p>Prioritize user control, privacy, and security in AI agent design</p>
-                </div> -->
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -1495,6 +1529,58 @@
             <div class="open-source-note">
                 <i class="fas fa-code-branch"></i>
                 <p>More publications and open-source projects coming soon as our initiative progresses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sneak Peak Section -->
+    <section id="sneak-peak" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Sneak Peak on what we're working on</h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>OpenID Foundation Whitepaper</h3>
+                    <p>Collaborating on the future of identity for agents - establishing secure, verifiable, and interoperable identity standards for AI systems.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Agent Cards & Credentials</h3>
+                    <p>Developing standardized credentials and identification systems for using agents safely in consumer and enterprise environments.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>Multi-agent Alignment & Governance</h3>
+                    <p>Addressing the complex challenges of aligning multiple AI agents and establishing governance frameworks for agent-to-agent interactions.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Preference Alignment & Fidelity</h3>
+                    <p>Research into ensuring AI agents accurately understand, maintain, and act upon user preferences with high fidelity across different contexts and interactions.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Better AI Model Memory Management</h3>
+                    <p>Developing improved techniques for AI agents to manage, organize, and utilize memory effectively while maintaining privacy and security.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal Safety of Agents</h3>
+                    <p>Investigating the legal frameworks, liability structures, and safety standards necessary for responsible deployment of AI agents in consumer markets.</p>
+                </div>
             </div>
         </div>
     </section>
