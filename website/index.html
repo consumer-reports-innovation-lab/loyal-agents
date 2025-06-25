@@ -107,9 +107,8 @@
 
         /* Scroll Animations */
         .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .fade-in.visible {
@@ -120,7 +119,7 @@
         .slide-in-left {
             opacity: 0;
             transform: translateX(-50px);
-            transition: all 0.8s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .slide-in-left.visible {
@@ -131,7 +130,7 @@
         .slide-in-right {
             opacity: 0;
             transform: translateX(50px);
-            transition: all 0.8s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .slide-in-right.visible {
@@ -142,7 +141,7 @@
         .scale-in {
             opacity: 0;
             transform: scale(0.9);
-            transition: all 0.8s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .scale-in.visible {
@@ -333,6 +332,10 @@
             animation: float 20s ease-in-out infinite;
         }
         
+        .hero.bg-dark::before {
+            animation: none;
+        }
+        
         @keyframes float {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30px, -30px) scale(1.05); }
@@ -355,6 +358,7 @@
             padding: 0;
             display: flex;
             align-items: center;
+            animation: fadeInUp 1s ease-out;
         }
         
         .hero::before {
@@ -388,7 +392,6 @@
             padding: 80px 0;
             color: white;
             max-width: 650px;
-            animation: fadeInUp 1s ease-out;
         }
         
         @keyframes fadeInUp {
@@ -701,6 +704,11 @@
 
         /* Mobile styles */
         @media (max-width: 991px) {
+            .hero {
+                min-height: 60vh;
+                max-height: 90vh;
+            }
+            
             .hero-wrapper {
                 flex-direction: column;
             }
@@ -713,7 +721,7 @@
             .hero-triangle-container {
                 clear:both;
                 position: absolute;
-                top: 0;
+                top: 15%;
                 left: 0;
                 width: 100%;
                 opacity: 0.4;
@@ -1147,7 +1155,7 @@
 <body>
     <!-- Hero Section with Dynamic Triangles -->
     <section class="hero bg-dark">
-                <div class="container hero-wrapper">
+        <div class="container hero-wrapper">
             <div class="hero-content-container">
                 <div class="logo-container">
                     <img src="./images/del_logo.svg" alt="Digital Economy Lab Logo" class="partner-logo">
@@ -1161,7 +1169,7 @@
                     <a href="#mailing-list" class="btn btn-secondary">Join Our Mailing List</a>
                 </div> -->
             </div>
-<div class="hero-triangle-container" id="triangleContainer">
+            <div class="hero-triangle-container" id="triangleContainer">
                 <!-- Triangle animation will go here -->
             </div>
         </div>
@@ -1501,13 +1509,15 @@
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // Once visible, stop observing this element so it stays visible
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
