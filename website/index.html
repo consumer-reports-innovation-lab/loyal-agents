@@ -3,10 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safe and Useful AI Agents | Stanford Digital Economy Lab & Consumer Reports</title>
+    <title>Loyal Agents | Stanford Digital Economy Lab & Consumer Reports Initiative</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="description" content="A Stanford + Consumer Reports Initiative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents. Building the future of the consumer experience in an agentic world.">
+    <meta name="keywords" content="AI agents, loyal agents, consumer protection, AI safety, agent authentication, digital economy, Stanford, Consumer Reports, AI governance, agent-to-agent negotiations">
+    <meta name="author" content="Stanford Digital Economy Lab & Consumer Reports Innovation Lab">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loyalagents.org/">
+    <meta property="og:title" content="Loyal Agents | Stanford Digital Economy Lab & Consumer Reports Initiative">
+    <meta property="og:description" content="A Stanford + Consumer Reports Initiative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents. Building the future of the consumer experience in an agentic world.">
+    <meta property="og:image" content="https://loyalagents.org/hero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Loyal Agents Initiative">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://loyalagents.org/">
+    <meta property="twitter:title" content="Loyal Agents | Stanford Digital Economy Lab & Consumer Reports Initiative">
+    <meta property="twitter:description" content="A Stanford + Consumer Reports Initiative for Creating a Secure, Consumer-Centric, Trusted Marketplace of AI Agents. Building the future of the consumer experience in an agentic world.">
+    <meta property="twitter:image" content="https://loyalagents.org/hero.png">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#3A8DC7">
+    <meta name="msapplication-TileColor" content="#3A8DC7">
+    <meta name="application-name" content="Loyal Agents Initiative">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://loyalagents.org/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- MailerLite Universal -->
     <script>
@@ -18,6 +56,25 @@
     </script>
     <!-- End MailerLite Universal -->
     <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-color: #3A8DC7;
+            --secondary-color: #06AE3C;
+            --dark-color: #051A33;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --border-radius: 16px;
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-display: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
         /* Reset & Global Styles */
         * {
             margin: 0;
@@ -27,36 +84,50 @@
         
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: var(--font-body);
             line-height: 1.6;
-            color: #333;
+            color: var(--text-primary);
             overflow-x: hidden;
             margin: 0;
             padding: 0;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            font-family: var(--font-display);
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: #051A33;
+            color: var(--dark-color);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         
         p {
             margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         a {
-            color: #3A8DC7;
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition-base);
+            position: relative;
         }
         
         a:hover {
-            color: #06AE3C;
+            color: var(--secondary-color);
         }
         
         .container {
@@ -67,88 +138,281 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
+        }
+
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Parallax Background */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .parallax-bg::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, 
+                rgba(58, 141, 199, 0.05) 0%, 
+                rgba(6, 174, 60, 0.05) 100%);
+            transform: translateY(0);
+            will-change: transform;
         }
         
-        /* Buttons */
+        /* Modern Button Styles */
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            border-radius: 50px;
+            padding: 16px 32px;
+            border-radius: 100px;
             font-weight: 600;
+            font-size: 1rem;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition-base);
             border: none;
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-body);
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .btn-primary {
-            background: #3A8DC7;
+            background: linear-gradient(135deg, var(--primary-color), #2f73a6);
             color: white;
         }
         
         .btn-primary:hover {
-            background: #2f73a6;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
             color: white;
         }
         
         .btn-secondary {
-            background: #06AE3C;
+            background: linear-gradient(135deg, var(--secondary-color), #058b30);
             color: white;
         }
         
         .btn-secondary:hover {
-            background: #058b30;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
             color: white;
         }
         
-        /* Section Headers */
+        /* Modern Section Headers */
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
+            margin-bottom: 60px;
             position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(58, 141, 199, 0.1), rgba(6, 174, 60, 0.1));
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 1;
         }
         
         .section-title:after {
             content: "";
             display: block;
-            width: 80px;
+            width: 100px;
             height: 4px;
-            background: linear-gradient(90deg, #3A8DC7, #06AE3C);
-            margin: 15px auto 0;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 20px auto 0;
             border-radius: 2px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100px;
+                opacity: 1;
+            }
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
-            color: #555;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+            opacity: 0.9;
         }
         
-        /* Section Backgrounds */
+        /* Modern Section Backgrounds */
         .bg-light {
-            background-color: #f9f9f9;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+        
+        .bg-light::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(58, 141, 199, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(6, 174, 60, 0.03) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         .bg-dark {
-            background-color: #051A33;
+            background: linear-gradient(135deg, #051A33 0%, #0a2847 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bg-dark::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            width: 120%;
+            height: 120%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(58, 141, 199, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(6, 174, 60, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .hero.bg-dark::before {
+            animation: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
         }
         
         .bg-dark h2, .bg-dark h3 {
             color: white;
         }
         
-        /* Hero Section (Updated Layout) */
+        .bg-dark p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        /* Modern Hero Section */
         .hero {
             position: relative;
-            /* min-height: 80vh; */
+            min-height: 100vh;
             overflow: hidden;
             padding: 0;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(58, 141, 199, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 174, 60, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(58, 141, 199, 0.1) 0%, transparent 50%);
+            z-index: 1;
         }
         
         .hero-wrapper {
@@ -156,35 +420,53 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            /* min-height: 80vh; */
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
         }
         
         .hero-content-container {
             flex: 1;
             position: relative;
-            z-index: 2;
+            z-index: 11;
             padding: 80px 0;
             color: white;
-            max-width: 600px;
+            max-width: 650px;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
             margin-bottom: 1.5rem;
             color: white;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
         }
         
         .hero-subtitle {
             margin-bottom: 2rem;
-            opacity: 0.9;
-            color: white;
+            opacity: 0.95;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            line-height: 1.6;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
+            margin-top: 2.5rem;
         }
 
         .logo-container {
@@ -205,43 +487,133 @@
             flex: 1;
             position: relative;
             height: 100%;
-            /* min-height: 80vh; */
+/* min-height: 80vh; */
             z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
+                    }
         
         canvas {
             position: absolute;
             z-index: 1;
         }
         
-        /* About Section */
+        /* Modern About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
         
         .about-card {
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 10px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            padding: 50px 30px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 8px 32px rgba(31, 38, 135, 0.1),
+                inset 0 2px 1px rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(58, 141, 199, 0.05) 0%, 
+                rgba(6, 174, 60, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
         
         .about-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 15px 45px rgba(31, 38, 135, 0.15),
+                inset 0 2px 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .about-card:hover::before {
+            opacity: 1;
         }
         
         .about-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+        
+        .about-card:hover .about-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .about-card h3 {
+            position: relative;
+            z-index: 2;
             margin-bottom: 20px;
-            color: #3A8DC7;
+        }
+        
+        .about-card p {
+            position: relative;
+            z-index: 2;
+            color: var(--text-secondary);
+        }
+        
+        /* Sneak Peak Section - Smaller styling */
+        #sneak-peak {
+            padding: 60px 0; /* Reduced from default 100px */
+        }
+        
+        #sneak-peak .section-title {
+            margin-bottom: 30px; /* Reduced from 60px */
+            font-size: clamp(1.5rem, 3vw, 2.5rem); /* Smaller than default */
+        }
+        
+        #sneak-peak .section-subtitle {
+            margin-bottom: 40px; /* Reduced from 60px */
+            font-size: 1.1rem; /* Smaller than default 1.25rem */
+        }
+        
+        #sneak-peak .about-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller min width */
+            gap: 25px; /* Reduced from 40px */
+            margin-top: 30px; /* Reduced from 60px */
+        }
+        
+        #sneak-peak .about-card {
+            padding: 30px 20px; /* Reduced from 50px 30px */
+            border-radius: 16px; /* Reduced from 24px */
+        }
+        
+        #sneak-peak .about-icon {
+            font-size: 2rem; /* Reduced from 3rem */
+            margin-bottom: 15px; /* Reduced from 25px */
+        }
+        
+        #sneak-peak .about-card h3 {
+            font-size: 1.1rem; /* Smaller than default */
+            margin-bottom: 10px; /* Reduced from 20px */
+        }
+        
+        #sneak-peak .about-card p {
+            font-size: 0.95rem; /* Smaller text */
+            line-height: 1.5; /* Tighter line height */
         }
         
         /* Partners Section */
@@ -295,30 +667,67 @@
             border-radius: 10px;
         }
         
-        /* Workstreams Section */
+        /* Modern Workstreams Section */
         .workstream-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
         
         .workstream-card {
-            background: white;
-            border: 1px solid #051A33;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(58, 141, 199, 0.2);
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 30px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.9);
             height: 100%;
-            transition: transform 0.3s;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .workstream-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(58, 141, 199, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+        
+        .workstream-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(10%, 10%);
         }
         
         .workstream-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.12),
+                inset 0 1px 0 rgba(255,255,255,1);
+            border-color: rgba(58, 141, 199, 0.4);
         }
         
         .workstream-card h3 {
-            color: #3A8DC7;
-            margin-bottom: 15px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .workstream-card p {
+            position: relative;
+            z-index: 2;
         }
         
         .workstream-note {
@@ -373,8 +782,14 @@
             background: #06AE3C;
         }
         
+
         /* Mobile styles */
         @media (max-width: 991px) {
+            .hero {
+                min-height: 60vh;
+                max-height: 90vh;
+            }
+            
             .hero-wrapper {
                 flex-direction: column;
             }
@@ -387,7 +802,7 @@
             .hero-triangle-container {
                 clear:both;
                 position: absolute;
-                top: 0;
+                top: 15%;
                 left: 0;
                 width: 100%;
                 opacity: 0.4;
@@ -482,7 +897,8 @@
         /* Carousel Styles */
         .carousel-container {
             width: 100vw;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             margin: 40px 0;
             left: 50%;
             right: 50%;
@@ -490,18 +906,20 @@
             margin-left: -50vw;
             margin-right: -50vw;
             padding: 0 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
         }
 
         .carousel {
             display: flex;
             gap: 20px;
-            animation: scroll 30s linear infinite;
             width: fit-content;
             padding: 10px 0;
-        }
-
-        .carousel:hover {
-            animation-play-state: paused;
         }
 
         .carousel-item {
@@ -626,6 +1044,196 @@
                 min-height: 100px;
             }
         }
+
+        /* Publications Section Styles */
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .publication-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08), 
+                rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+        }
+
+        .publication-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), 
+                rgba(58, 141, 199, 0.15), 
+                transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .publication-card::after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, 
+                var(--primary-color), 
+                var(--secondary-color));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .publication-card:hover::before {
+            opacity: 1;
+        }
+
+        .publication-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .publication-card:hover {
+            transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateZ(20px);
+            border-color: rgba(58, 141, 199, 0.5);
+            box-shadow: 
+                0 25px 50px rgba(58, 141, 199, 0.25),
+                0 0 0 1px rgba(58, 141, 199, 0.1);
+        }
+
+        .publication-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .publication-icon {
+            font-size: 3rem;
+            color: #3A8DC7;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-card:hover .publication-icon {
+            transform: scale(1.1);
+        }
+
+        .publication-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .publication-authors {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+
+        .publication-venue {
+            color: #06AE3C;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .publication-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(58, 141, 199, 0.2);
+            border: 1px solid #3A8DC7;
+            border-radius: 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .publication-link:hover {
+            background: #3A8DC7;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .publication-link i {
+            font-size: 0.9rem;
+        }
+
+        .open-source-note {
+            text-align: center;
+            padding: 30px;
+            background: rgba(6, 174, 60, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(6, 174, 60, 0.3);
+            margin-top: 50px;
+        }
+
+        .open-source-note i {
+            font-size: 2.5rem;
+            color: #06AE3C;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .open-source-note p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Responsive adjustments for publications */
+        @media (max-width: 768px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .publication-card {
+                padding: 30px 20px;
+            }
+
+            .publication-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .publication-authors {
+                font-size: 0.95rem;
+            }
+
+            .open-source-note {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -654,12 +1262,12 @@
     <!-- About the Initiative -->
     <section id="about" class="bg-light">
         <div class="container">
-            <h2 class="section-title">About the Initiative</h2>
+            <h2 class="section-title">What is Loyal Agents?</h2>
             <p class="section-subtitle" style="text-align: justify;">Stanford's Digital Economy Lab and Consumer Reports Innovation Lab (CR) are joining forces to create a forward-looking research initiative to develop, test and deploy agentic AI frameworks with consumer-centric values. By bringing together a community of technologists, researchers, and consumer advocates across industry, academia, and civil society, this initiative will tackle the complex challenge of ensuring that AI agents act securely, transparently, and in the user's best interests. The Initiative will focus on, developing sandboxes for prototyping next-generation patterns, learning from applied research and ultimately demonstrating a more dynamic, competitive marketplace driven by "loyal by design" AI.
             </p>
 
             
-            <div class="about-grid">
+            <!-- <div class="about-grid">
                 <div class="about-card">
                     <div class="about-icon">
                         <i class="fas fa-code-branch"></i>
@@ -681,14 +1289,7 @@
                     <h3>Sandbox Testing & Evals</h3>
                     <p>Test AI agents and MCP servers in sandbox environments to ensure they meet safety requirements and consumer protection norms.</p>
                 </div>
-                <!-- <div class="about-card">
-                    <div class="about-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Consumer Protection</h3>
-                    <p>Prioritize user control, privacy, and security in AI agent design</p>
-                </div> -->
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -782,6 +1383,16 @@
                         </a>
                     </div>
                     <div class="carousel-item">
+                        <a href="https://www.linkedin.com/in/jiaxin-pei-0000000000000000000000000000000000000000/" target="_blank">
+                            <div class="team-member">
+                                <img src="images/faces/AndrewBunyea.jpg" alt="Andrew Bunyea">
+                                <div class="team-member-info">
+                                    <h3>Andrew Bunyea</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
                         <a href="https://jiaxin-pei.github.io/" target="_blank">
                             <div class="team-member">
                                 <img src="images/faces/jiaxin_pei.png" alt="Jiaxin Pei">
@@ -808,7 +1419,7 @@
                         </a>
                     </div>
                     <div class="carousel-item">
-                        <a href="https://www.pli.edu" target="_blank">
+                        <a href="https://www.projectliberty.io/" target="_blank">
                             <img src="images/PLI.png" alt="PLI">
                         </a>
                     </div>
@@ -818,7 +1429,7 @@
                         </a>
                     </div>
                     <div class="carousel-item">
-                        <a href="https://www.del.stanford.edu" target="_blank">
+                        <a href="https://digitaleconomy.stanford.edu/" target="_blank">
                             <img src="images/DEL-black.png" alt="Digital Economy Lab">
                         </a>
                     </div>
@@ -842,6 +1453,171 @@
                             <img src="images/oidf.png" alt="Open ID Foundation">
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications & Open-source Projects -->
+    <section id="publications" class="bg-dark">
+        <div class="container">
+            <h2 class="section-title">Publications & Open-source Projects</h2>
+            <p class="section-subtitle">Our research and development efforts are contributing to the advancement of loyal AI agents through academic publications and open-source contributions.</p>
+            
+            <div class="publications-grid">
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <p class="publication-venue">Research Paper</p>
+                    <h3>Agent-to-Agent Negotiations</h3>
+                    <p class="publication-authors">The automated but risky game: Modeling agent-to-agent negotiations and transactions in consumer markets.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2506.00073" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <p class="publication-venue">Research Paper</p>
+                    <h3>Authenticated Delegation for AI Agents</h3>
+                    <p class="publication-authors">How to delegate authority and authenticate AI agents for a more secure and reliable AI agent ecosystem.</p>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/pdf/2501.09674" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <p class="publication-venue">Research Paper</p>
+                    <h3>Human Control Protocol</h3>
+                    <p class="publication-authors">Robust AI personalization will require a human context protocol for interoperable preference sharing between AI models.</p>
+                    <div class="publication-links">
+                        <a href="https://drive.google.com/file/d/1unjGAMJ6A7bbO-FTcTciz52PDa36fa5r/view?usp=sharing" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Paper
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <p class="publication-venue">GitHub Repository</p>
+                    <h3>HCP Demo</h3>
+                    <p class="publication-authors">Open-source implementation demonstrating portable, secure, and interoperable preference information sharing between AI agents.</p>
+                    <div class="publication-links">
+                        <a href="https://github.com/tobinsouth/hcp-demo" target="_blank" class="publication-link">
+                            <i class="fas fa-code"></i> View Code
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
+                    <h3>Agents Talking to Agents (A2A)</h3>
+                    <p class="publication-authors">Reshaping the marketplace and your power</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/agents-talking-to-agents-a2a-reshaping-the-marketplace-and-your-power/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
+                    <h3>AI News: Marketplace Roundup</h3>
+                    <p class="publication-authors">Autonomous shopping & the agent economy</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/ai-news-marketplace-roundup-autonomous-shopping-the-agent-economy/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card">
+                    <div class="publication-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <p class="publication-venue">Consumer Reports Innovation Lab Blog</p>
+                    <h3>My Agent Messed Up</h3>
+                    <p class="publication-authors">Understanding errors and recourse in AI transactions with lessons from Stanford CodeX's AI Agents x Law Workshop</p>
+                    <div class="publication-links">
+                        <a href="https://innovation.consumerreports.org/my-agent-messed-up-understanding-errors-and-recourse-in-ai-transactions/" target="_blank" class="publication-link">
+                            <i class="fas fa-external-link-alt"></i> Read Article
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="open-source-note">
+                <i class="fas fa-code-branch"></i>
+                <p>More publications and open-source projects coming soon as our initiative progresses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sneak Peak Section -->
+    <section id="sneak-peak" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Sneak Peak on what we're working on</h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>OpenID Foundation Whitepaper</h3>
+                    <p>Collaborating on the future of identity for agents - establishing secure, verifiable, and interoperable identity standards for AI systems.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Agent Cards & Credentials</h3>
+                    <p>Developing standardized credentials and identification systems for using agents safely in consumer and enterprise environments.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>Multi-agent Alignment & Governance</h3>
+                    <p>Addressing the complex challenges of aligning multiple AI agents and establishing governance frameworks for agent-to-agent interactions.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Preference Alignment & Fidelity</h3>
+                    <p>Research into ensuring AI agents accurately understand, maintain, and act upon user preferences with high fidelity across different contexts and interactions.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Better AI Model Memory Management</h3>
+                    <p>Developing improved techniques for AI agents to manage, organize, and utilize memory effectively while maintaining privacy and security.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal Safety of Agents</h3>
+                    <p>Investigating the legal frameworks, liability structures, and safety standards necessary for responsible deployment of AI agents in consumer markets.</p>
                 </div>
             </div>
         </div>
@@ -871,6 +1647,69 @@
 
    
 </body>
+<script>
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Once visible, stop observing this element so it stays visible
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe all elements with animation classes
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+    animatedElements.forEach(el => observer.observe(el));
+    
+    // Add animation classes to elements
+    document.querySelectorAll('.section-title').forEach(el => el.classList.add('fade-in'));
+    document.querySelectorAll('.section-subtitle').forEach(el => el.classList.add('fade-in'));
+    document.querySelectorAll('.about-card').forEach((el, index) => {
+        el.classList.add('fade-in');
+        el.style.animationDelay = `${index * 0.1}s`;
+    });
+    document.querySelectorAll('.workstream-card').forEach((el, index) => {
+        el.classList.add('scale-in');
+        el.style.animationDelay = `${index * 0.1}s`;
+    });
+    document.querySelectorAll('.publication-card').forEach((el, index) => {
+        el.classList.add('fade-in');
+        el.style.animationDelay = `${index * 0.05}s`;
+    });
+});
+
+// 3D card effect for publication cards
+document.querySelectorAll('.publication-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// Parallax effect
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    
+    parallaxElements.forEach(element => {
+        const speed = 0.5;
+        element.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
+</script>
 <script type="module">
     export function initTriangleAnimation(containerId) {
     // Create canvas element
@@ -1101,6 +1940,41 @@
 } 
 
 initTriangleAnimation('triangleContainer');
+
+// Auto-scroll carousel functionality
+function initAutoScrollCarousels() {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(carousel => {
+        // Wait for content to load then start auto-scroll
+        setTimeout(() => {
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+            
+            // Only start auto-scroll if there's content to scroll
+            if (maxScroll > 10) {
+                // Reset to beginning
+                carousel.scrollLeft = 0;
+                
+                // Auto-scroll function - simple continuous scroll
+                function autoScroll() {
+                    const currentMaxScroll = carousel.scrollWidth - carousel.clientWidth;
+                    if (carousel.scrollLeft >= currentMaxScroll - 5) {
+                        // Reset to start
+                        carousel.scrollLeft = 0;
+                    } else {
+                        carousel.scrollLeft += 1; // Scroll 1px at a time
+                    }
+                }
+                
+                // Start auto-scrolling - continuous without interruption
+                setInterval(autoScroll, 30); // 30ms for smooth scrolling
+            }
+        }, 500); // Small delay to ensure content is loaded
+    });
+}
+
+// Initialize auto-scroll when page loads
+document.addEventListener('DOMContentLoaded', initAutoScrollCarousels);
 
 // Function to duplicate carousel items
 function duplicateCarouselItems() {
