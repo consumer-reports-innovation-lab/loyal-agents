@@ -1,6 +1,6 @@
 # Loyal Agents
 
-![Loyal Agents Initiative](hero.png)
+![Loyal Agents Initiative](website/hero.png)
 
 This is the official repo for the Loyal Agents Initiative, a collaborative research project between Stanford's Digital Economy Lab and Consumer Reports Innovation Lab. The site is designed with simplicity and performance in mind, featuring modern CSS animations and responsive design.
 
