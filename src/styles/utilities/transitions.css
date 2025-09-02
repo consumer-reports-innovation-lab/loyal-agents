@@ -1,0 +1,19 @@
+@utility transition-enter-fade-down {
+  @apply transition duration-300 ease-out;
+  &.from {
+    @apply transform opacity-0 -translate-y-4;
+  }
+  &.to {
+    @apply transform opacity-100 translate-y-0;
+  }
+}
+
+@utility transition-leave-fade-down {
+  @apply transition duration-300 ease-out;
+  &.from {
+    @apply transform translate-y-0 opacity-100;
+  }
+  &.from {
+    @apply transform translate-y-2 opacity-0;
+  }
+}

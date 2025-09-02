@@ -1,0 +1,120 @@
+---
+import DotBackground from '../../utility/DotBackground';
+import NewsletterFormComponent from './newsletter-form-component';
+
+interface Props {
+  background_color?: string;
+  logos: {
+    consumer_reports_logo: string;
+    digital_economy_lab_logo: string;
+  };
+  branding: {
+    brand_title: string;
+    tagline: string;
+  };
+  email_signup: {
+    signup_text: string;
+    placeholder_text: string;
+    button_text: string;
+  };
+  privacy_policy: {
+    privacy_text: string;
+    privacy_link_text: string;
+    privacy_link_url: string;
+  };
+}
+
+const { background_color = "#000000", logos, branding, email_signup, privacy_policy } = Astro.props;
+---
+
+<section
+  class="relative min-h-screen bg-black text-white"
+  style={`background-color: ${background_color};`}
+  aria-labelledby="hero-brand-title">
+
+  <DotBackground client:load />
+
+  <!-- Vertical Grid Lines -->
+  <div class="absolute inset-0 pointer-events-none -z-10">
+    <div class="max-w-7xl mx-auto h-full relative translate-y-[350px]">
+      <div class="absolute h-full w-px border-gray-200 border-dashed border-l-1 left-0"></div>
+      <div class="absolute h-full w-px border-gray-200 border-dashed border-l-1 left-1/3"></div>
+      <div class="absolute h-full w-px border-gray-200 border-dashed border-l-1 left-2/3"></div>
+      <div class="absolute h-full w-px border-gray-200 border-dashed border-l-1 right-0"></div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 min-h-screen flex items-center pb-[300px] mb-[200px] md:pb-0 md:mb-24 lg:mb-0">
+    <div class="max-w-7xl mx-auto px-8 py-36 w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+        <!-- Left Side - Content -->
+        <div>
+          <!-- Logos -->
+          <div class="flex  items-center gap-8 mb-8">
+            <img
+              src={logos.consumer_reports_logo}
+              alt="Consumer Reports"
+              class="w-28 h-auto md:w-auto md:h-12"
+            />
+            <img
+              src={logos.digital_economy_lab_logo}
+              alt="Digital Economy Lab"
+              class="w-28 h-auto md:w-auto md:h-16"
+            />
+          </div>
+
+          <div class="bg-black md:py-2 md:pe-1">
+            <h1
+              id="hero-brand-title"
+              class="text-5xl md:text-7xl font-medium mb-8"
+            >
+              {branding.brand_title}
+            </h1>
+
+            <p class="text-3xl leading-tight text-white mb-16">
+              {branding.tagline}
+            </p>
+          </div>
+
+          <!-- Email Signup Section -->
+          <div class="max-w-3xl">
+            <p class="font-sans text-xl font-medium text-white mb-2 leading-loose">
+              {email_signup.signup_text}
+            </p>
+
+            <!-- Email Form -->
+            <NewsletterFormComponent
+              email_placeholder_text={email_signup.placeholder_text}
+              submit_button_text={email_signup.button_text}
+              client:load
+            />
+
+            <!-- Privacy Policy -->
+            <p class="text-[#efefef] text-sm">
+              {privacy_policy.privacy_text}
+              <a
+                href={privacy_policy.privacy_link_url}
+                class="underline transition-colors duration-300 hover:text-white"
+              >
+                {privacy_policy.privacy_link_text}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Side - Tech Illustrations -->
+        <div class="justify-center items-center flex">
+          <div class="relative w-full h-fit">
+            <div class="absolute inset-0 flex items-center lg:justify-center top-[350px] md:top-[300px] ">
+              <img src="/images/illustration.svg" alt="" role="presentation" class="h-[750px] md:h-[1100px]">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

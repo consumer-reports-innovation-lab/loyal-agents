@@ -1,0 +1,36 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;700&display=swap'); */
+/* @import "tailwindcss/base.css"; */
+
+
+
+@import 'tailwindcss';
+html{
+  scroll-behavior: smooth;
+}
+
+@import './base/base.css' ;
+@import './base/layout.css' ;
+@import './base/typography.css' ;
+@import './components/accordion.css';
+@import './components/buttons.css';
+@import './utilities/transitions.css';
+
+@config '../../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}

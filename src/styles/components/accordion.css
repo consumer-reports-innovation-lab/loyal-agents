@@ -1,0 +1,9 @@
+@utility accordion {
+  @apply mx-auto max-w-4xl divide-y divide-gray-900/10;
+  .accordion-items {
+    @apply mt-10 space-y-6 divide-y divide-gray-900/10;
+    .accordion-item-title {
+      @apply flex w-full items-start justify-between text-left text-gray-900;
+    }
+  }
+}

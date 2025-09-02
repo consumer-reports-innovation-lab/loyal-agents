@@ -1,0 +1,31 @@
+
+  html {
+    @apply selection:bg-secondary/70 !scroll-smooth overflow-x-hidden!;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-light !overflow-x-hidden;
+  }
+  main{
+    @apply !overflow-x-hidden;
+  }
+  section {
+    @apply py-20;
+  }
+  .container {
+    @apply mx-auto px-4;
+    @apply max-w-7xl!;
+    @apply lg:px-2;
+  }
+  input,
+  textarea {
+    @apply border-0!;
+  }
+  hr {
+    @apply my-3 text-neutral-500/30;
+  }
+  ::placeholder,
+  ::-ms-input-placeholder {
+    @apply uppercase opacity-100;
+  }
+

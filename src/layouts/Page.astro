@@ -1,0 +1,21 @@
+---
+import PageHelper from "../shared/astro/page.astro";
+import HeroBlock from "src/shared/astro/hero-block.astro";
+import Layout, { type SEOProps } from "./Layout.astro";
+
+type Props = {
+  frontmatter: {
+    title: string;
+    content_blocks: any[];
+    hero_block: any;
+    seo?: SEOProps;
+  };
+};
+
+const props = Astro.props.frontmatter;
+---
+
+<Layout {...props}>
+  <HeroBlock bookshop:live heroBlock={props.hero_block} />
+  <PageHelper bookshop:live contentBlocks={props.content_blocks} />
+</Layout>

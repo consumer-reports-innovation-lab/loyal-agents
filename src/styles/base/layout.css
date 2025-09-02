@@ -1,0 +1,6 @@
+
+  footer {
+    a {
+      @apply hover:opacity-70 transition;
+    }
+  }

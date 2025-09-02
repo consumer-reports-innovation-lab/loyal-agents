@@ -1,0 +1,50 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Why It Matters
+  description: Simple text section explaining why the topic matters with heading and description
+  icon: 'info'
+  tags:
+    - Content
+    - Text
+    - Explanation
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#ffffff'
+  heading:
+    heading_text: 'Why it matters'
+  description:
+    description_text: 'Agentic AI is transforming commerce and services; agents are negotiating, transacting and making decisions with growing autonomy and impact. While agents can amplify consumer power, there is also risk of privacy breaches, misaligned incentives, and manipulative business practices. Trust and security are essential for consumers and businesses alike.'
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  heading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Main Heading
+        subtext:
+          - 'Update the main section heading'
+  description:
+    options:
+      preview:
+        icon: 'description'
+        text:
+          - key: description_text
+          - Description
+        subtext:
+          - 'Update the main description text'
+  description.description_text:
+    type: textarea
+    options:
+      preview:
+        icon: 'description'
+        text:
+          - Description Text

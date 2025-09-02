@@ -1,0 +1,11 @@
+@utility btn {
+  @apply text-sm px-5 py-2.5 me-2 mb-2 rounded-lg;
+  @apply text-white bg-dark font-medium;
+  @apply transition;
+  @apply hover:bg-secondary;
+  @apply focus:outline-hidden focus:ring-blue-300 focus:ring-4;
+  &.btn-primary {
+    @apply text-dark bg-primary;
+    @apply hover:bg-secondary;
+  }
+}
