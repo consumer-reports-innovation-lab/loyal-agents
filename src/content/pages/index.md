@@ -1,6 +1,6 @@
 ---
 _schema: default
-title: LoyalAgents - Consumer Reports
+title: LoyalAgents - Consumer Reports & Stanford
 seo:
   page_description: >-
     A research collaboration to enable a marketplace of secure, trusted
