@@ -4,6 +4,10 @@ import Drawer from '../drawer/Drawer';
 
 interface Props {
   background_color?: string;
+  content: {
+    heading_text?: string;
+    subtitle_text?: string;
+  };
   heading: {
     heading_text: string;
   };
@@ -11,7 +15,7 @@ interface Props {
     subtitle_text: string;
   };
   focus_areas: Array<{
-    number: string;
+    focus_number: string;
     title: string;
     subtitle: string;
     description: string;
@@ -19,11 +23,10 @@ interface Props {
     featured_resources: Array<string>;
     color: string;
     button_text: string;
-    button_link: string;
   }>;
 }
 
-const { background_color = "#f0f0f0", heading, subtitle, focus_areas } = Astro.props;
+const { background_color = "#f0f0f0", content, focus_areas } = Astro.props;
 
 // Get all resources and sort by date (newest first)
 const allResources = await getCollection('resources');
@@ -32,6 +35,9 @@ const sortedResources = allResources.sort((a, b) => {
   const dateB = new Date(b.data.date || 0);
   return dateB.getTime() - dateA.getTime();
 });
+
+// console.log('focus areas', focus_areas)
+// console.log('focus areas', allResources)
 ---
 
 <section
@@ -57,12 +63,12 @@ const sortedResources = allResources.sort((a, b) => {
     <div class="lg:text-center mb-16">
       <h2
         id="focus-areas-heading"
-        class="font-sans text-6xl font-medium text-black tracking-tight mb-6"
+        class="font-sans text-5xl md:text-6xl font-medium text-black tracking-tight mb-6"
       >
-        {heading.heading_text}
+        {content.heading_text}
       </h2>
       <p class="max-w-2xl font-sans text-xl text-black leading-loose mx-0 lg:mx-auto">
-        {subtitle.subtitle_text}
+        {content.subtitle_text}
       </p>
     </div>
 
@@ -85,10 +91,10 @@ const sortedResources = allResources.sort((a, b) => {
                 >
                   <span
                     class={`font-sans text-base font-medium ${
-                      area.number === '01' ? 'text-black' : 'text-white'
+                      area.focus_number === '01' ? 'text-black' : 'text-white'
                     }`}
                   >
-                    {area.number}
+                    {area.focus_number}
                   </span>
                 </div>
               </div>
@@ -116,7 +122,7 @@ const sortedResources = allResources.sort((a, b) => {
                 type="button"
                 class="w-full  flex items-center justify-between group"
                 aria-label={`${area.button_text} for ${area.title}`}
-                onclick={`window.openFocusAreaDrawer('${area.number}')`}
+                onclick={`window.openFocusAreaDrawer('${area.focus_number}')`}
               >
                 <span class="font-sans text-base text-pretty font-medium text-black tracking-wide uppercase text-left">
                 {area.button_text}
@@ -142,15 +148,19 @@ const sortedResources = allResources.sort((a, b) => {
   client:load
   resources={sortedResources}
   focusAreas={focus_areas.map(area => ({
-    id: area.number,
+    id: area.focus_number,
     title: area.title,
     subtitle: area.subtitle,
     color: area.color,
-    number: area.number,
+    number: area.focus_number,
     description: area.description,
     tags: area.tags,
     featuredResources: area.featured_resources
-      .map(id => allResources.find(r => r.id === id))
+      .map(filePath => {
+        // Extract filename from file path (e.g., "/src/content/resources/new-resource-2.mdx" -> "new-resource-2.mdx")
+        const filename = filePath.split('/').pop() || '';
+        return allResources.find(r => r.id === filename);
+      })
       .filter((r): r is CollectionEntry<'resources'> => r !== undefined)
   }))}
 />

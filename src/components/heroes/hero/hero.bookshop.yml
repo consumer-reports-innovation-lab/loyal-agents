@@ -43,6 +43,14 @@ _inputs:
           - Logos
         subtext:
           - 'Update Consumer Reports and Digital Economy Lab logos'
+  digital_economy_lab_logo:
+    type: image
+    preview:
+      icon: image
+  consumer_reports_logo:
+    type: image
+    preview:
+      icon: image
   branding:
     options:
       preview:

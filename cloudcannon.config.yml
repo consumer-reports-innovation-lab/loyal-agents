@@ -54,18 +54,6 @@ collections_config:
           - key: thumb_image_path
           - key: post_hero.image
       metadata:
-        - icon: calendar_month
-          text:
-            - template: Created {post_hero.date|date_long}
-            - Add date
-        - icon: person
-          text:
-            - template: By {post_hero.author}
-            - No author
-        - icon: style
-          text:
-            - template: '{post_hero.tags[*]}'
-            - No tags
     _enabled_editors:
       - visual
       - content
@@ -117,15 +105,6 @@ collections_config:
         label: Thumbnail Image Alt Text
         options:
           empty_type: string
-      author:
-        options:
-          empty_type: string
-      tags:
-        type: multiselect
-        comment: To add a new tag, go to the [tags data file](cloudcannon:collections/data/tags.json).
-        options:
-          values: data.tags
-          empty_type: array
   data:
     path: data
     disable_add: true
@@ -256,6 +235,12 @@ _inputs:
     type: object
     options:
       structures: _structures.hero_blocks
+  tags:
+    type: multiselect
+    options:
+      empty_type: array
+      values: data.tags
+      value_key: value
   feature_list:
     type: multiselect
     options:
@@ -303,6 +288,7 @@ _inputs:
   height:
     type: number
   background_color:
+    hidden: true
     type: select
     options:
       values: data.colors
@@ -314,6 +300,7 @@ _inputs:
         icon_color:
           - key: value
   text_color:
+    hidden: true
     type: select
     options:
       values: data.colors
@@ -336,6 +323,7 @@ _inputs:
         icon_color:
           - key: value
   hover_text_color:
+    hidden: true
     type: select
     options:
       values: data.colors
@@ -462,6 +450,7 @@ _snippets:
           type: string
     _inputs:
       background_color:
+        hidden: true
         type: select
         options:
           values: data.colors

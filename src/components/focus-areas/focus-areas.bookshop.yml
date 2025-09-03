@@ -13,21 +13,19 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   background_color: '#f0f0f0'
-  heading:
+  content:
     heading_text: 'Our focus areas'
-  subtitle:
     subtitle_text: "We're advancing research and standards to make AI agents secure, loyal, and effective advocates for consumers everywhere."
   focus_areas:
-    - number: '01'
+    - focus_number: '01'
       title: 'Enabling AI agents to securely transact on behalf of consumers'
       subtitle: 'Autonomy'
       description: "Building future-proof frameworks for identity, authentication, and authorization so agents act reliably and safely on the user's behalf."
       tags: ['Security', 'Identity']
-      featured_resources: ['authentic-ai-bringing-authentication-authorization-and-identity-into-the-ai-agent-world']
+      featured_resources: []
       color: '#c8c8c8'
       button_text: 'See how to build the future'
-      button_link: '#'
-    - number: '02'
+    - focus_number: '02'
       title: 'Defining duties of AI agents to consumers'
       subtitle: 'Accountability'
       description: "Establishing clear principles and legal duties that ensure AI agents remain loyal and prioritize users' interests above all."
@@ -35,8 +33,7 @@ blueprint:
       featured_resources: []
       color: '#3a8dc7'
       button_text: 'See how the law applies'
-      button_link: '#'
-    - number: '03'
+    - focus_number: '03'
       title: "Ensuring agents are effective and aligned with consumers' preferences"
       subtitle: 'Alignment'
       description: 'Designing evaluation methods so agents adapt to individual goals, protect against bias, and deliver meaningful outcomes.'
@@ -44,7 +41,6 @@ blueprint:
       featured_resources: []
       color: '#02ad4d'
       button_text: 'See our approach to evaluations'
-      button_link: '#'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -69,7 +65,8 @@ _inputs:
           - Subtitle
         subtext:
           - 'Update the subtitle description'
-
+  focus_number:
+    type: text
   focus_areas:
     options:
       preview:
@@ -78,7 +75,7 @@ _inputs:
           - Focus Areas
         subtext:
           - 'Update the focus area cards'
-  focus_areas[*].number:
+  focus_areas[*].featured_number:
     options:
       preview:
         icon: 'format_list_numbered'
@@ -111,24 +108,24 @@ _inputs:
     type: multiselect
     options:
       values: data.tags
-      value_key: title
+      value_key: value
       preview:
         icon: 'label'
-        text:
-          - Tags
-        subtext:
-          - 'Update area tags'
+        # text:
+        #   - Tags
+        # subtext:
+        #   - 'Update area tags'
   focus_areas[*].featured_resources:
     type: multiselect
     options:
       values: collections.resources
-      value_key: title
+      # value_key: value
       preview:
         icon: 'star'
-        text:
-          - Featured Resources
-        subtext:
-          - 'Select featured resources by ID'
+        # text:
+        #   - Featured Resources
+        # subtext:
+        #   - 'Select featured resources by ID'
   focus_areas[*].color:
     type: color
     options:
