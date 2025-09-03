@@ -31,7 +31,7 @@ const ContactFormComponent = ({
 
   useEffect(() => {
     if (window.location.hostname.includes("loyalagents.org")) {
-      setFormId(10906);
+      setFormId(10907);
       setApiDomain("https://innovation.consumerreports.org");
     }
   }, []);
