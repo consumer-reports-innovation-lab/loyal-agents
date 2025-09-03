@@ -1,0 +1,92 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - hero_blocks
+  label: Hero
+  description: Hero section with LoyalAgents branding, tech illustrations, and email signup
+  icon: 'cottage'
+  tags:
+    - Branding
+    - Logos
+    - Email Signup
+    - Privacy Policy
+    - Tech Design
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#000000'
+  logos:
+    consumer_reports_logo: '/images/logos/consumer-reports-logo.png'
+    digital_economy_lab_logo: '/images/logos/digital-economy-lab-logo.png'
+  branding:
+    brand_title: 'LoyalAgents'
+    tagline: 'A research collaboration to enable a marketplace of secure, trusted consumer-centric agents'
+  email_signup:
+    signup_text: 'Sign up to receive updates'
+    placeholder_text: 'name@email.com'
+    button_text: 'SIGN UP'
+  privacy_policy:
+    privacy_text: 'We care about the protection of your data. Read our '
+    privacy_link_text: 'Privacy Policy'
+    privacy_link_url: 'https://www.consumerreports.org/cro/customerservice/privacy-policy/highlights/index.htm'
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  logos:
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - Logos
+        subtext:
+          - 'Update Consumer Reports and Digital Economy Lab logos'
+  digital_economy_lab_logo:
+    type: image
+    preview:
+      icon: image
+  consumer_reports_logo:
+    type: image
+    preview:
+      icon: image
+  branding:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - Branding
+        subtext:
+          - 'Update LoyalAgents brand title and tagline'
+  branding.brand_title:
+    options:
+      preview:
+        icon: 'title'
+        text:
+          - key: brand_title
+          - Brand Title
+  branding.tagline:
+    type: textarea
+    options:
+      preview:
+        icon: 'description'
+        text:
+          - key: tagline
+          - Tagline
+  email_signup:
+    options:
+      preview:
+        icon: 'email'
+        text:
+          - Email Signup
+        subtext:
+          - 'Update email signup form content'
+  privacy_policy:
+    options:
+      preview:
+        icon: 'policy'
+        text:
+          - Privacy Policy
+        subtext:
+          - 'Update privacy policy text and link'

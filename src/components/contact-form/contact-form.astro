@@ -1,0 +1,59 @@
+---
+import ContactFormComponent from './contact-form-component';
+interface Props {
+  background_color?: string;
+  heading: {
+    heading_text: string;
+  };
+  form_fields: ContactFormFields;
+  submit_button: SubmitButtonLabel;
+}
+
+const { background_color = "#000000", heading, form_fields, submit_button } = Astro.props;
+---
+
+<section
+  id="get-involved"
+  class="overflow-hidden relative py-20 bg-black"
+  style={`background-color: ${background_color};`}
+  aria-labelledby="contact-form-heading"
+>
+  <!-- Vertical Grid Lines -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="max-w-7xl mx-auto h-full relative">
+      <div class="absolute h-full w-px border-gray-700 border-dashed border-l-1 left-0"></div>
+      <div class="absolute h-full w-px border-gray-700 border-dashed border-l-1 left-1/3"></div>
+      <div class="absolute h-full w-px border-gray-700 border-dashed border-l-1 left-2/3"></div>
+      <div class="absolute h-full w-px border-gray-700 border-dashed border-l-1 right-0"></div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 px-8 mx-auto max-w-7xl">
+
+    <!-- Header and Form Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+
+      <!-- Left Side - Header -->
+      <div>
+        <h2
+          id="contact-form-heading"
+          class="font-sans text-4xl md:text-6xl font-medium text-white tracking-[-0.02em] leading-tight"
+        >
+          {heading.heading_text}
+        </h2>
+      </div>
+
+      <!-- Right Side - Contact Form -->
+      <div class="md:col-span-2">
+        <ContactFormComponent
+          form_fields={form_fields}
+          submit_button={submit_button}
+          client:load
+        />
+      </div>
+
+    </div>
+
+  </div>
+</section>

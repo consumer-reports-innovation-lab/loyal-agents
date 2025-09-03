@@ -1,0 +1,183 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Drawer from '../drawer/Drawer';
+
+interface Props {
+  background_color?: string;
+  content: {
+    heading_text?: string;
+    subtitle_text?: string;
+  };
+  heading: {
+    heading_text: string;
+  };
+  subtitle: {
+    subtitle_text: string;
+  };
+  focus_areas: Array<{
+    focus_number: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    tags: Array<string>;
+    featured_resources: Array<string>;
+    color: string;
+    button_text: string;
+  }>;
+}
+
+const { background_color = "#f0f0f0", content, focus_areas } = Astro.props;
+
+// Get all resources and sort by date (newest first)
+const allResources = await getCollection('resources');
+const sortedResources = allResources.sort((a, b) => {
+  const dateA = new Date(a.data.date || 0);
+  const dateB = new Date(b.data.date || 0);
+  return dateB.getTime() - dateA.getTime();
+});
+
+// console.log('focus areas', focus_areas)
+// console.log('focus areas', allResources)
+---
+
+<section
+  id="focus-areas"
+  class="relative bg-gray-100 py-20 overflow-hidden"
+  style={`background-color: ${background_color};`}
+  aria-labelledby="focus-areas-heading"
+>
+  <!-- Vertical Grid Lines -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="max-w-7xl mx-auto h-full relative">
+      <div class="absolute h-full w-px border-gray-300 border-dashed border-l-1 left-0"></div>
+      <div class="absolute h-full w-px border-gray-300 border-dashed border-l-1 left-1/3"></div>
+      <div class="absolute h-full w-px border-gray-300 border-dashed border-l-1 left-2/3"></div>
+      <div class="absolute h-full w-px border-gray-300 border-dashed border-l-1 right-0"></div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8">
+
+    <!-- Header Section -->
+    <div class="lg:text-center mb-16">
+      <h2
+        id="focus-areas-heading"
+        class="font-sans text-5xl md:text-6xl font-medium text-black tracking-tight mb-6"
+      >
+        {content.heading_text}
+      </h2>
+      <p class="max-w-2xl font-sans text-xl text-black leading-loose mx-0 lg:mx-auto">
+        {content.subtitle_text}
+      </p>
+    </div>
+
+    <!-- Focus Areas Cards -->
+    <div class="flex flex-col lg:flex-row md:justify-between gap-4  xl:gap-16">
+      {focus_areas.map((area) => (
+        <div class="bg-white rounded-lg overflow-hidden relative lg:w-[400px] lg:h-[490px] mx-2">
+
+          <div
+            class="absolute left-0 top-0 w-2 h-full rounded-l-lg"
+            style={`background-color: ${area.color};`}
+          ></div>
+
+          <div class="p-8 flex flex-col h-full">
+            <div class="flex gap-4">
+              <div class="mb-6">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={`background-color: ${area.color};`}
+                >
+                  <span
+                    class={`font-sans text-base font-medium ${
+                      area.focus_number === '01' ? 'text-black' : 'text-white'
+                    }`}
+                  >
+                    {area.focus_number}
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-6 items-center">
+                {area.tags.map((tag) => (
+                  <span class="bg-[#f0f0f0] px-3 h-fit py-1 rounded-full text-xs font-bold uppercase text-black">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-medium mb-2 flex-grow">
+              {area.title}
+            </h3>
+
+            <p class="font-sans text-base text-black leading-[25px] mb-8">
+              {area.description}
+            </p>
+
+
+
+              <button
+                type="button"
+                class="w-full  flex items-center justify-between group"
+                aria-label={`${area.button_text} for ${area.title}`}
+                onclick={`window.openFocusAreaDrawer('${area.focus_number}')`}
+              >
+                <span class="font-sans text-base text-pretty font-medium text-black tracking-wide uppercase text-left">
+                {area.button_text}
+                </span>
+                <div class="bg-black rounded-full h-12 w-12 aspect-square group-hover:bg-gray-80 transition-all duration-300 flex items-center justify-center group-hover:scale-110 group-hover:rotate-5">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5V19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </button>
+
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<Drawer
+  client:load
+  resources={sortedResources}
+  focusAreas={focus_areas.map(area => ({
+    id: area.focus_number,
+    title: area.title,
+    subtitle: area.subtitle,
+    color: area.color,
+    number: area.focus_number,
+    description: area.description,
+    tags: area.tags,
+    featuredResources: area.featured_resources
+      .map(filePath => {
+        // Extract filename from file path (e.g., "/src/content/resources/new-resource-2.mdx" -> "new-resource-2.mdx")
+        const filename = filePath.split('/').pop() || '';
+        return allResources.find(r => r.id === filename);
+      })
+      .filter((r): r is CollectionEntry<'resources'> => r !== undefined)
+  }))}
+/>
+
+<script>
+  declare global {
+    interface Window {
+      openFocusAreaDrawer: (areaId: string) => void;
+    }
+  }
+
+  // Initialize drawer state
+  let drawerComponent: any;
+
+  // Function to open drawer
+  window.openFocusAreaDrawer = (areaId: string) => {
+    const event = new CustomEvent('openDrawer', { detail: { areaId } });
+    document.dispatchEvent(event);
+  };
+</script>

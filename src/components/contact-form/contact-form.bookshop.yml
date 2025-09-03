@@ -1,0 +1,224 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Contact Form
+  description: Contact form section with dark background and form fields
+  icon: 'contact_mail'
+  tags:
+    - Contact
+    - Form
+    - Get Involved
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#000000'
+  heading:
+    heading_text: 'Get involved'
+  form_fields:
+    first_name:
+      label: 'FIRST NAME'
+      placeholder: 'First Name'
+      required: true
+    last_name:
+      label: 'LAST NAME'
+      placeholder: 'Last Name'
+      required: true
+    email:
+      label: 'EMAIL ADDRESS'
+      placeholder: 'Email Address'
+      required: true
+    company:
+      label: 'COMPANY NAME'
+      placeholder: 'Company Name'
+      required: true
+    message:
+      label: 'MESSAGE'
+      placeholder: 'Please list all relevant project, product or article details'
+      required: false
+  submit_button:
+    text: 'SUBMIT'
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  heading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Contact Heading
+        subtext:
+          - 'Update the main contact form heading'
+  form_fields:
+    options:
+      preview:
+        icon: 'contact_mail'
+        text:
+          - Form Fields
+        subtext:
+          - 'Update form field labels and placeholders'
+  form_fields.first_name:
+    options:
+      preview:
+        icon: 'person'
+        text:
+          - First Name Field
+        subtext:
+          - 'Update first name field settings'
+  form_fields.first_name.label:
+    options:
+      preview:
+        icon: 'label'
+        text:
+          - key: label
+          - Field Label
+  form_fields.first_name.placeholder:
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: placeholder
+          - Placeholder Text
+  form_fields.first_name.required:
+    type: checkbox
+    options:
+      preview:
+        icon: 'star'
+        text:
+          - Required Field
+  form_fields.last_name:
+    options:
+      preview:
+        icon: 'person'
+        text:
+          - Last Name Field
+        subtext:
+          - 'Update last name field settings'
+  form_fields.last_name.label:
+    options:
+      preview:
+        icon: 'label'
+        text:
+          - key: label
+          - Field Label
+  form_fields.last_name.placeholder:
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: placeholder
+          - Placeholder Text
+  form_fields.last_name.required:
+    type: checkbox
+    options:
+      preview:
+        icon: 'star'
+        text:
+          - Required Field
+  form_fields.email:
+    options:
+      preview:
+        icon: 'email'
+        text:
+          - Email Field
+        subtext:
+          - 'Update email field settings'
+  form_fields.email.label:
+    options:
+      preview:
+        icon: 'label'
+        text:
+          - key: label
+          - Field Label
+  form_fields.email.placeholder:
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: placeholder
+          - Placeholder Text
+  form_fields.email.required:
+    type: checkbox
+    options:
+      preview:
+        icon: 'star'
+        text:
+          - Required Field
+  form_fields.company:
+    options:
+      preview:
+        icon: 'business'
+        text:
+          - Company Field
+        subtext:
+          - 'Update company field settings'
+  form_fields.company.label:
+    options:
+      preview:
+        icon: 'label'
+        text:
+          - key: label
+          - Field Label
+  form_fields.company.placeholder:
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: placeholder
+          - Placeholder Text
+  form_fields.company.required:
+    type: checkbox
+    options:
+      preview:
+        icon: 'star'
+        text:
+          - Required Field
+  form_fields.message:
+    options:
+      preview:
+        icon: 'message'
+        text:
+          - Message Field
+        subtext:
+          - 'Update message field settings'
+  form_fields.message.label:
+    options:
+      preview:
+        icon: 'label'
+        text:
+          - key: label
+          - Field Label
+  form_fields.message.placeholder:
+    type: textarea
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: placeholder
+          - Placeholder Text
+  form_fields.message.required:
+    type: checkbox
+    options:
+      preview:
+        icon: 'star'
+        text:
+          - Required Field
+  submit_button:
+    options:
+      preview:
+        icon: 'send'
+        text:
+          - Submit Button
+        subtext:
+          - 'Update submit button text'
+  submit_button.text:
+    options:
+      preview:
+        icon: 'text_fields'
+        text:
+          - key: text
+          - Button Text

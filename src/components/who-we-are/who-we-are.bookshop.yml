@@ -1,0 +1,250 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Who We Are
+  description: Section showing leadership team, about sections with experts, and partners
+  icon: 'people'
+  tags:
+    - Team
+    - Leadership
+    - About
+    - Partners
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#ffffff'
+  content:
+    heading_text: 'Who we are'
+    subtitle_text: 'Through this research collaboration, Stanford Digital Economy Lab and Consumer Reports are working to drive state-of-the-art inquiry, build industry consensus, and propose standards and solutions for loyal, trustworthy AI systems.'
+  stanford_section:
+    background_image: '/images/backgrounds/stanford-bg.jpg'
+    logo_path: '/images/logos/stanford-digital-economy-lab-logo.png'
+    logo_alt: 'Stanford Digital Economy Lab logo'
+    description: "Stanford's Digital Economy Lab brings together economists, computer scientists, and policy experts to study how digital technologies transform markets, work, and society—conducting research that informs business strategy, innovation, and public policy."
+    team_members:
+      - name: 'Sandy Pentland'
+        title: 'Co-Lead, Stanford HAI Fellow'
+        link: ''
+        image_path: '/images/team/sandy-pentland.jpg'
+        image_alt: 'Sandy Pentland headshot'
+      - name: 'Tobin South'
+        title: 'Expert, Stanford HAI Fellow'
+        link: ''
+        image_path: '/images/team/tobin-south.jpg'
+        image_alt: 'Tobin South headshot'
+      - name: 'Dazza Greenwood'
+        title: 'Affiliate, Stanford CodeX'
+        link: ''
+        image_path: '/images/team/dazza-greenwood.jpg'
+        image_alt: 'Dazza Greenwood headshot'
+      - name: 'Jiaxin Pei'
+        title: 'DEL Postdoctoral Fellow, Stanford HAI'
+        link: ''
+        image_path: '/images/team/jiaxin-pei.jpg'
+        image_alt: 'Jiaxin Pei headshot'
+  consumer_reports_section:
+    background_image: '/images/backgrounds/consumer-reports-bg.jpg'
+    overlay_color: 'rgba(9, 49, 26, 0.77)'
+    logo_path: '/images/logos/consumer-reports-logo.png'
+    logo_alt: 'Consumer Reports logo'
+    description: 'Consumer Reports is an independent, nonprofit member organization that works to create a fairer, safer, and more transparent marketplace. We believe consumers deserve meaningful choices, and modern tools to enable and inform those choices.'
+    team_members:
+      - name: 'Ben Moskowitz'
+        title: 'Co-Lead, Consumer Reports Vice President, Innovation'
+        link: ''
+        image_path: '/images/team/ben-moskowitz.jpg'
+        image_alt: 'Ben Moskowitz headshot'
+      - name: 'Ginny Fahs'
+        title: 'Expert, CR Innovation Lab Director, Product R&D'
+        link: ''
+        image_path: '/images/team/ginny-fahs.jpg'
+        image_alt: 'Ginny Fahs headshot'
+      - name: 'Andrew Bunyea'
+        title: 'Expert, Associate Director at Consumer Reports'
+        link: ''
+        image_path: '/images/team/andrew-bunyea.jpg'
+        image_alt: 'Andrew Bunyea headshot'
+      - name: 'Inyoung Cheong'
+        title: 'Expert, Princeton CITP Postdoctorate Researcher'
+        link: ''
+        image_path: '/images/team/inyoung-cheong.jpg'
+        image_alt: 'Inyoung Cheong headshot'
+  partners:
+    title: 'Our partners'
+    partner_logos:
+      - name: 'Genesys'
+        image_path: '/images/partners/genesys-logo.png'
+        image_alt: 'Genesys logo'
+      - name: 'Stanford HAI'
+        image_path: '/images/partners/stanford-hai-logo.png'
+        image_alt: 'Stanford HAI logo'
+      - name: 'Project Liberty'
+        image_path: '/images/partners/project-liberty-logo.png'
+        image_alt: 'Project Liberty logo'
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  heading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Main Heading
+        subtext:
+          - 'Update the main section heading'
+  subtitle:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: subtitle_text
+          - Subtitle
+        subtext:
+          - 'Update the subtitle description'
+  stanford_section:
+    options:
+      preview:
+        icon: 'school'
+        text:
+          - Stanford Section
+        subtext:
+          - 'Update Stanford Digital Economy Lab section'
+  stanford_section.background_image:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - Stanford Background
+        image:
+          - key: background_image
+  stanford_section.logo_path:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - Stanford Logo
+        image:
+          - key: logo_path
+  stanford_section.description:
+    type: textarea
+    options:
+      preview:
+        icon: 'description'
+        text:
+          - Stanford Description
+  consumer_reports_section:
+    options:
+      preview:
+        icon: 'business'
+        text:
+          - Consumer Reports Section
+        subtext:
+          - 'Update Consumer Reports section'
+  consumer_reports_section.background_image:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - CR Background
+        image:
+          - key: background_image
+  consumer_reports_section.overlay_color:
+    type: color
+    options:
+      preview:
+        icon: 'palette'
+        text:
+          - CR Overlay Color
+  consumer_reports_section.logo_path:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - CR Logo
+        image:
+          - key: logo_path
+  consumer_reports_section.description:
+    type: textarea
+    options:
+      preview:
+        icon: 'description'
+        text:
+          - CR Description
+  team_members:
+    options:
+      preview:
+        icon: 'people'
+        text:
+          - Team Members
+        subtext:
+          - 'Update team member grid'
+  team_members[*].name:
+    options:
+      preview:
+        icon: 'person'
+        text:
+          - key: name
+          - Member Name
+  team_members[*].title:
+    options:
+      preview:
+        icon: 'work'
+        text:
+          - key: title
+          - Member Title
+  team_members[*].image_path:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - Member Photo
+        image:
+          - key: image_path
+  partners:
+    options:
+      preview:
+        icon: 'business'
+        text:
+          - Partners Section
+        subtext:
+          - 'Update partners and logos'
+  partners.title:
+    options:
+      preview:
+        icon: 'title'
+        text:
+          - Partners Title
+  partners.partner_logos:
+    options:
+      preview:
+        icon: 'business'
+        text:
+          - Partner Logos
+        subtext:
+          - 'Update partner organization logos'
+  partners.partner_logos[*].name:
+    options:
+      preview:
+        icon: 'business'
+        text:
+          - key: name
+          - Partner Name
+  partners.partner_logos[*].image_path:
+    type: image
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - Partner Logo
+        image:
+          - key: image_path

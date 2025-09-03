@@ -1,0 +1,32 @@
+---
+import { footer } from "../../../data/navigation.json";
+---
+
+<footer
+  class="bg-[#1b1b1b] text-white font-semibold text-base md:text-center z-50 relative"
+  style={`background-color: ${footer.background_color}; color: ${footer.text_color};`}>
+  <div class="max-w-7xl mx-auto px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- Footer Links -->
+    <ul class="flex flex-wrap gap-4 md:gap-8 items-center justify-center md:justify-start">
+      {
+        footer.links.map((link) => {
+          return (
+            <li>
+              <a
+                class="text-white hover:text-gray-300 transition-colors duration-300 text-base leading-5"
+                href={link.link}
+              >
+                {link.text}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <!-- Copyright -->
+    <div class="text-white text-base leading-5">
+      {footer.copyright}
+    </div>
+  </div>
+</footer>

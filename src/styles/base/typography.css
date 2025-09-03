@@ -1,0 +1,44 @@
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    @apply text-pretty;
+  }
+  h1,
+  .h1 {
+    @apply mb-2 text-4xl font-bold tracking-tight capitalize;
+    @apply text-dark;
+  }
+  h2,
+  .h2 {
+    @apply font-bold font-sans tracking-tight text-xl mb-2;
+    @apply md:text-3xl;
+    @apply text-dark;
+  }
+  h3,
+  .h3 {
+    @apply uppercase font-semibold text-2xl mb-2;
+    @apply text-dark;
+  }
+  h4,
+  .h4 {
+    @apply font-sans tracking-tight font-semibold text-xl mb-2;
+    @apply text-dark;
+  }
+  p,
+  .p {
+    @apply font-sans tracking-tight text-xl mb-2;
+    @apply text-dark;
+  }
+  .bg-dark {
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      @apply text-light;
+    }
+  }
+

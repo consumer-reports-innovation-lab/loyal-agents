@@ -1,0 +1,56 @@
+{
+  "header": {
+    "logo": "LoyalAgents",
+    "logo_alt_text": "LoyalAgents",
+    "logo_url": "/",
+    "background_color": "rgba(27, 27, 27, 0.8)",
+    "text_color": "#ffffff",
+    "hover_text_color": "#cccccc",
+    "links": [
+      {
+        "link": "#why-it-matters",
+        "text": "WHY IT MATTERS"
+      },
+      {
+        "link": "#focus-areas",
+        "text": "FOCUS AREAS"
+      },
+      {
+        "link": "#who-we-are",
+        "text": "WHO WE ARE"
+      }
+    ],
+    "cta_button": {
+      "link": "#get-involved",
+      "text": "GET INVOLVED"
+    }
+  },
+  "footer": {
+    "copyright": "©2025 Consumer Reports, Inc.",
+    "background_color": "#1b1b1b",
+    "text_color": "#ffffff",
+    "hover_text_color": "#cccccc",
+    "links": [
+      {
+        "link": "https://www.consumerreports.org/customerservice/privacy-policy/highlights/",
+        "text": "Privacy Policy"
+      },
+      {
+        "link": "https://www.consumerreports.org/2015/01/user-agreement/",
+        "text": "User Agreement"
+      },
+      {
+        "link": "https://www.consumerreports.org/member-support/#refunds",
+        "text": "Refund Policy"
+      },
+      {
+        "link": "https://www.consumerreports.org/your-privacy-choices/",
+        "text": "Your Privacy Choices"
+      },
+      {
+        "link": "https://www.consumerreports.org/products/sitemap/html/",
+        "text": "Sitemap"
+      }
+    ]
+  }
+}

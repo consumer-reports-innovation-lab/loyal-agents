@@ -1,0 +1,70 @@
+---
+import { header } from "../../../data/navigation.json";
+import MobileMenu from "./MobileMenu";
+
+interface Props {
+  headerStyleOverrides?: {
+    background_color?: string;
+    text_color?: string;
+    hover_text_color?: string;
+    alternate_logo?: {
+      image_path?: string;
+      logo_alt_text?: string;
+    };
+  };
+}
+
+// Sort out whether values are overridden by the hero at the top of the page,
+// Or use the values set in the site-wide data/navigation.json data file
+const headerStyleOverrides = Astro.props.headerStyleOverrides;
+const backgroundColor =
+  headerStyleOverrides?.background_color ?? header.background_color;
+const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
+const linkHoverColor =
+  headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
+const logoText = headerStyleOverrides?.alternate_logo?.image_path ?? header.logo;
+const logoAltText =
+  headerStyleOverrides?.alternate_logo?.logo_alt_text ?? header.logo_alt_text;
+---
+
+<header
+  class="fixed top-5 md:top-5 left-1/2 -translate-x-1/2 w-[calc(100%-1.25rem)] md:w-[calc(100%-2.5rem)] max-w-7xl z-[1000] rounded-full overflow-hidden backdrop-blur-[12.5px]"
+  style={`background: ${backgroundColor}; color: ${linkTextColor};`}>
+  <div class="px-4 md:ps-8 md:pe-4 py-2 md:py-3">
+    <nav class="flex justify-between items-center gap-8">
+      <!-- Logo/Brand -->
+      <a class="no-underline text-inherit" href={header.logo_url}>
+        <span class="font-sans text-2xl font-bold text-white tracking-tight leading-normal">{logoText}</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="hidden lg:flex gap-8 m-0 p-0 flex-1 justify-center" aria-label="Header navigation links">
+        {
+          header.links.map((link) => {
+            return (
+              <li class="list-none">
+                <a class="font-sans font-bold text-base uppercase text-white no-underline cursor-pointer tracking-wider transition-colors duration-300 hover:text-teal-200" href={link.link}>
+                  {link.text}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <!-- CTA Button -->
+      <a class="hidden lg:block py-2 px-6 bg-gradient-to-br from-green-400 to-[#3A8DC7] rounded-full no-underline font-sans font-bold text-base tracking-wider uppercase text-white duration-300 hover:opacity-90 hover:text-black transition-all text-center" href={header.cta_button.link}>
+        {header.cta_button.text}
+      </a>
+
+      <!-- Mobile menu -->
+      <MobileMenu
+        client:load
+        links={header.links}
+        ctaButton={header.cta_button}
+        linkTextColor={linkTextColor}
+        linkHoverColor={linkHoverColor}
+      />
+    </nav>
+  </div>
+</header>

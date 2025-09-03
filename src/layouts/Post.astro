@@ -1,0 +1,54 @@
+---
+import Layout from "./Layout.astro";
+import PostSummary from "../components/blog/summary.astro";
+import PostHero from "../components/blog/post-hero/post-hero.astro";
+import { getCollection } from "astro:content";
+
+type Props = {
+  frontmatter: {
+    title: string;
+    post_hero: {
+      heading: string;
+      date: string | Date;
+      image: string;
+      image_alt: string;
+      author: string;
+      tags: Array<string>;
+    };
+  };
+  body: string;
+};
+
+const { frontmatter, body } = Astro.props;
+
+const posts = await getCollection("blog");
+const filteredPosts = posts.filter(
+  (post) => post.data.title !== frontmatter.title
+);
+---
+
+<Layout {...frontmatter}>
+  <div class="post-container">
+    <article aria-labelled-by="blog-hero-text">
+      <PostHero bookshop:live {...frontmatter.post_hero} bodyContent={body} />
+      <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
+        <slot />
+      </div>
+    </article>
+  </div>
+
+  <section class="blog-recent-posts">
+    <h2 class="blog-recent-posts-heading">Recent Posts</h2>
+    <ul class="blog-recent-posts-list">
+      {
+        filteredPosts.slice(0, 3).map((post, i) => {
+          return (
+            <li>
+              <PostSummary {...post} loading="lazy" />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+</Layout>
