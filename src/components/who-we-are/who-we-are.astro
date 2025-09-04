@@ -1,5 +1,4 @@
 ---
-import type { content } from 'tailwind.config';
 
 interface Props {
   background_color?: string;
@@ -52,6 +51,23 @@ interface Props {
 }
 
 const { background_color = "#ffffff", content, stanford_section, consumer_reports_section, team_members, partners } = Astro.props;
+
+// Helper function to get dynamic grid classes based on number of team members
+function getGridClasses(memberCount: number): string {
+  if (memberCount <= 4) {
+    // 1-5 people: each gets their own column
+    return `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8`;
+  } else if (memberCount === 5) {
+    // 6 people: strict 3-column grid
+    return `grid grid-cols-2 md:grid-cols-5 gap-8`;
+  } else if (memberCount === 6) {
+    // 6 people: strict 3-column grid
+    return `grid grid-cols-2 md:grid-cols-3 gap-8`;
+  } else {
+    // 8+ people: strict 4-column grid
+    return `grid grid-cols-2 md:grid-cols-4 gap-8`;
+  }
+}
 ---
 
 <section
@@ -108,7 +124,7 @@ const { background_color = "#ffffff", content, stanford_section, consumer_report
     </div>
 
     <!-- Team Members Section - First Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+    <div class={`${getGridClasses(stanford_section.team_members.length)} mb-20`}>
        {stanford_section.team_members.map((member) => (
         member.link ? (
           <a href={member.link} class="lg:text-center" target="_blank" rel="noopener noreferrer group">
@@ -175,7 +191,7 @@ const { background_color = "#ffffff", content, stanford_section, consumer_report
     </div>
 
     <!-- Team Members Section - Second Row -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+    <div class={`${getGridClasses(consumer_reports_section.team_members.length)} mb-20`}>
       {consumer_reports_section.team_members.map((member) => (
         member.link ? (
           <a href={member.link} class="lg:text-center" target="_blank" rel="noopener noreferrer">
