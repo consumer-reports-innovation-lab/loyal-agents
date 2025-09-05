@@ -133,7 +133,7 @@ content_blocks:
           image_alt: Jiaxin Pei headshot
     consumer_reports_section:
       background_image: /images/backgrounds/consumer-reports-bg.webp
-      overlay_color: rgba(9, 49, 26, 0.77)
+      overlay_color: '#09311a'
       logo_path: /images/logos/consumer-reports-logo.webp
       logo_alt: Consumer Reports logo
       description: >-
@@ -162,6 +162,11 @@ content_blocks:
           link: https://inyoungcheong.github.io/
           image_path: /images/team/inyoung-cheong.webp
           image_alt: Inyoung Cheong headshot
+        - name: Dan Leininger
+          title: 'Expert, CR Innovation Lab, Experimental Engineering '
+          link: https://innovation.consumerreports.org/author/dan-lein/
+          image_path: /images/dan-leininger-720.jpg
+          image_alt: Sandy Pentland headshot
     partners:
       title: Our partners
       partner_logos:
