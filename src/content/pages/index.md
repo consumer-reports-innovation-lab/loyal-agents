@@ -1,6 +1,6 @@
 ---
 _schema: default
-title: Loyal Agents - Consumer Reports & Stanford
+title: LoyalAgents - Consumer Reports & Stanford
 seo:
   page_description: >-
     A research collaboration to enable a marketplace of secure, trusted
@@ -18,7 +18,7 @@ hero_block:
     consumer_reports_logo: /images/logos/consumer-reports-logo.webp
     digital_economy_lab_logo: /images/logos/stanford-digital-economy-lab-logo.webp
   branding:
-    brand_title: Loyal Agents
+    brand_title: LoyalAgents
     tagline: >-
       A research collaboration to enable a marketplace of secure, trusted
       consumer-centric agents
@@ -92,6 +92,21 @@ content_blocks:
         featured_resources: []
         color: '#02ad4d'
         button_text: See our approach to evaluations
+  - _bookshop_name: webinar-feature
+    background_color: '#000000'
+    content:
+      heading_text: The latest
+      description_text: >-
+        Check out our latest webinar hosted by Stanford CodeX’s Dazza Greenwood,
+        featuring leaders from Stripe, Visa, Skyfire, and Consumer Reports as
+        they explore the rise of AI shopping assistants and what new agentic
+        protocols mean for trust, identity, and consumer control.
+      watch_link: https://www.youtube.com/watch?v=LtFCXOOGPrw
+      watch_link_text: Watch webinar
+    video:
+      youtube_id: LtFCXOOGPrw
+      fallback_image: ''
+      fallback_image_alt: Webinar preview image
   - _bookshop_name: who-we-are
     background_color: '#ffffff'
     content:
@@ -117,7 +132,7 @@ content_blocks:
           image_path: /images/team/sandy-pentland.webp
           image_alt: Sandy Pentland headshot
         - name: Tobin South
-          title: DEL Digital Fellow, Stanford HAI
+          title: Expert, Stanford HAI Fellow
           link: https://tobin.south.fyi/
           image_path: /images/team/tobin-south.webp
           image_alt: Tobin South headshot
@@ -131,11 +146,6 @@ content_blocks:
           link: https://jiaxin-pei.github.io/
           image_path: /images/team/jiaxin-pei.webp
           image_alt: Jiaxin Pei headshot
-        - name: Zexue He
-          title: Postdoctoral Fellow, Stanford HAI
-          link: https://digitaleconomy.stanford.edu/people/zexue-he/
-          image_path: /images/zexue-white-bkgd.jpg
-          image_alt: Sandy Pentland headshot
     consumer_reports_section:
       background_image: /images/backgrounds/consumer-reports-bg.webp
       overlay_color: '#09311a'
@@ -211,23 +221,4 @@ content_blocks:
         required: false
     submit_button:
       text: SUBMIT
-  - _bookshop_name: text-block
-    background_color: '#ffffff'
-    heading:
-      text_content:
-      text_color: '#333232'
-    layout:
-      text_alignment: center
-      column_alignment: center
-      column_number: 1
-    text_color: '#333232'
-    text_content: ''
-  - _bookshop_name: focus-areas
-    background_color: '#f0f0f0'
-    content:
-      heading_text: Our focus areas
-      subtitle_text: >-
-        We're advancing research and standards to make AI agents secure, loyal,
-        and effective advocates for consumers everywhere.
-    focus_areas: []
 ---
