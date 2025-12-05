@@ -1,0 +1,28 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Webinar Feature
+  description: Two-column layout with heading, description, link, and YouTube video embed with optional fallback image
+  icon: 'video_library'
+  tags:
+    - Video
+    - Webinar
+    - Content
+    - Media
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#ffffff'
+  content:
+    heading_text: 'Watch Our Webinar'
+    description_text: 'Join us for an in-depth discussion about our latest research and findings.'
+    watch_link: 'https://www.youtube.com/watch?v=example'
+    watch_link_text: 'Watch the webinar'
+  video:
+    youtube_id: ''
+    fallback_image: ''
+    fallback_image_alt: 'Webinar preview image'
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:

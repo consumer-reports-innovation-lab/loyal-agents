@@ -1,0 +1,95 @@
+---
+import { YouTube } from "astro-embed";
+
+interface Props {
+  background_color?: string;
+  content: {
+    heading_text?: string;
+    description_text?: string;
+    watch_link?: string;
+    watch_link_text?: string;
+  };
+  video: {
+    youtube_id?: string;
+    fallback_image?: string;
+    fallback_image_alt?: string;
+  };
+}
+
+const { background_color = "#000000", content, video } = Astro.props;
+---
+
+<section
+  id="webinar-feature"
+  class="relative bg-white py-20 overflow-hidden text-white"
+  style={`background-color: ${background_color};`}
+  aria-labelledby="webinar-feature-heading"
+>
+  <!-- Vertical Grid Lines -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="max-w-7xl mx-auto h-full relative">
+      <div class="absolute h-full w-px border-gray-200/20 border-dashed border-l-1 left-0"></div>
+      <div class="absolute h-full w-px border-gray-200/20 border-dashed border-l-1 left-1/3"></div>
+      <div class="absolute h-full w-px border-gray-200/20 border-dashed border-l-1 left-2/3"></div>
+      <div class="absolute h-full w-px border-gray-200/20 border-dashed border-l-1 right-0"></div>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left Column: Heading, Description, Link -->
+      <div>
+        {content.heading_text && (
+          <h2
+            id="webinar-feature-heading"
+            class="text-white font-sans text-5xl md:text-6xl font-medium tracking-tight mb-8"
+          >
+            {content.heading_text}
+          </h2>
+        )}
+        {content.description_text && (
+          <p class="text-white font-sans text-xl leading-loose mb-8">
+            {content.description_text}
+          </p>
+        )}
+        {content.watch_link && (
+          <a
+            href={content.watch_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-fit block py-2 px-6 bg-gradient-to-br from-green-400 to-[#3A8DC7] rounded-full no-underline font-sans font-bold text-base tracking-wider uppercase text-white duration-300 hover:opacity-90 hover:text-black transition-all text-center"
+          >
+            {content.watch_link_text || "Watch the webinar"}
+          </a>
+        )}
+      </div>
+
+      <!-- Right Column: YouTube Video Embed -->
+      <div class="w-full">
+        {video.youtube_id ? (
+          <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+            <div class="absolute inset-0">
+              <YouTube
+                id={video.youtube_id}
+                poster={video.fallback_image ?? ""}
+                title={content.heading_text ?? "Webinar video"}
+              />
+            </div>
+          </div>
+        ) : video.fallback_image ? (
+          <div class="relative w-full aspect-video rounded-lg overflow-hidden">
+            <img
+              src={video.fallback_image}
+              alt={video.fallback_image_alt ?? "Webinar preview"}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ) : null}
+      </div>
+
+    </div>
+  </div>
+</section>
+
