@@ -97,13 +97,16 @@ content_blocks:
     content:
       heading_text: The latest
       description_text: >-
-        AI assistants are learning to shop. As new protocols enable agents to transact on your behalf, questions of trust, identity, and control are taking center stage.
-      watch_link: 'https://www.youtube.com/watch?v=LtFCXOOGPrw'
+        Check out our latest webinar hosted by Stanford CodeX’s Dazza Greenwood,
+        featuring leaders from Stripe, Visa, Skyfire, and Consumer Reports as
+        they explore the rise of AI shopping assistants and what new agentic
+        protocols mean for trust, identity, and consumer control.
+      watch_link: https://www.youtube.com/watch?v=LtFCXOOGPrw
       watch_link_text: Watch webinar
     video:
-      youtube_id: 'LtFCXOOGPrw'
+      youtube_id: LtFCXOOGPrw
       fallback_image: ''
-      fallback_image_alt: 'Webinar preview image'
+      fallback_image_alt: Webinar preview image
   - _bookshop_name: who-we-are
     background_color: '#ffffff'
     content:
@@ -191,7 +194,6 @@ content_blocks:
         - name: Project Liberty
           image_path: /images/partners/project-liberty-logo.webp
           image_alt: Project Liberty logo
-
   - _bookshop_name: contact-form
     background_color: '#000000'
     heading:
