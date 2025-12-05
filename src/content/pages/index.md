@@ -1,6 +1,6 @@
 ---
 _schema: default
-title: LoyalAgents - Consumer Reports & Stanford
+title: Loyal Agents - Consumer Reports & Stanford
 seo:
   page_description: >-
     A research collaboration to enable a marketplace of secure, trusted
@@ -18,7 +18,7 @@ hero_block:
     consumer_reports_logo: /images/logos/consumer-reports-logo.webp
     digital_economy_lab_logo: /images/logos/stanford-digital-economy-lab-logo.webp
   branding:
-    brand_title: LoyalAgents
+    brand_title: Loyal Agents
     tagline: >-
       A research collaboration to enable a marketplace of secure, trusted
       consumer-centric agents
