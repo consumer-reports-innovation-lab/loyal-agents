@@ -117,7 +117,7 @@ content_blocks:
           image_path: /images/team/sandy-pentland.webp
           image_alt: Sandy Pentland headshot
         - name: Tobin South
-          title: Expert, Stanford HAI Fellow
+          title: DEL Digital Fellow, Stanford HAI
           link: https://tobin.south.fyi/
           image_path: /images/team/tobin-south.webp
           image_alt: Tobin South headshot
@@ -131,6 +131,11 @@ content_blocks:
           link: https://jiaxin-pei.github.io/
           image_path: /images/team/jiaxin-pei.webp
           image_alt: Jiaxin Pei headshot
+        - name: Zexue He
+          title: Postdoctoral Fellow, Stanford HAI
+          link: https://digitaleconomy.stanford.edu/people/zexue-he/
+          image_path: /images/zexue-white-bkgd.jpg
+          image_alt: Sandy Pentland headshot
     consumer_reports_section:
       background_image: /images/backgrounds/consumer-reports-bg.webp
       overlay_color: '#09311a'
@@ -206,4 +211,23 @@ content_blocks:
         required: false
     submit_button:
       text: SUBMIT
+  - _bookshop_name: text-block
+    background_color: '#ffffff'
+    heading:
+      text_content:
+      text_color: '#333232'
+    layout:
+      text_alignment: center
+      column_alignment: center
+      column_number: 1
+    text_color: '#333232'
+    text_content: ''
+  - _bookshop_name: focus-areas
+    background_color: '#f0f0f0'
+    content:
+      heading_text: Our focus areas
+      subtitle_text: >-
+        We're advancing research and standards to make AI agents secure, loyal,
+        and effective advocates for consumers everywhere.
+    focus_areas: []
 ---
