@@ -1,6 +1,6 @@
 ---
 _schema: default
-title: LoyalAgents - Consumer Reports & Stanford
+title: Loyal Agents - Consumer Reports & Stanford
 seo:
   page_description: >-
     A research collaboration to enable a marketplace of secure, trusted
@@ -132,7 +132,7 @@ content_blocks:
           image_path: /images/team/sandy-pentland.webp
           image_alt: Sandy Pentland headshot
         - name: Tobin South
-          title: Expert, Stanford HAI Fellow
+          title: DEL Digital Fellow, Stanford HAI
           link: https://tobin.south.fyi/
           image_path: /images/team/tobin-south.webp
           image_alt: Tobin South headshot
@@ -146,6 +146,11 @@ content_blocks:
           link: https://jiaxin-pei.github.io/
           image_path: /images/team/jiaxin-pei.webp
           image_alt: Jiaxin Pei headshot
+        - name: Zexue He
+          title: Postdoctoral Fellow, Stanford HAI Fellow
+          link: https://digitaleconomy.stanford.edu/people/zexue-he/
+          image_path: /images/zexue-white-bkgd.jpg
+          image_alt: Sandy Pentland headshot
     consumer_reports_section:
       background_image: /images/backgrounds/consumer-reports-bg.webp
       overlay_color: '#09311a'
