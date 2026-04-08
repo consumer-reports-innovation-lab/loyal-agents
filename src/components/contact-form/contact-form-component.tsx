@@ -20,13 +20,13 @@ const ContactFormComponent = ({
     message: string;
   } | null>(null);
   const [invalidFields, setInvalidFields] = useState<InvalidField[] | null>(
-    null
+    null,
   );
 
   // staging formId and domain, overwritten in useEffect if live site
-  const [formId, setFormId] = useState(20349);
+  const [formId, setFormId] = useState(10907);
   const [apiDomain, setApiDomain] = useState(
-    "https://innovation.stage.consumerreports.org"
+    "https://innovation.stage.consumerreports.org",
   );
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const ContactFormComponent = ({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -75,7 +75,7 @@ const ContactFormComponent = ({
           headers: {
             Accept: "application/json",
           },
-        }
+        },
       );
 
       const result = await response.json();
@@ -139,10 +139,10 @@ const ContactFormComponent = ({
               />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-white mb-3">
+          <h3 className="mb-3 text-2xl font-bold text-white">
             Submission Successful!
           </h3>
-          <p className="text-gray-300 text-lg">
+          <p className="text-lg text-gray-300">
             Check your email for further details.
           </p>
         </div>
@@ -173,7 +173,8 @@ const ContactFormComponent = ({
                 placeholder={form_fields.first_name.placeholder}
                 required={form_fields.first_name.required}
                 className={`px-4 py-3 w-full text-lg font-normal bg-[#1B1B1B] placeholder-gray-400 text-white rounded-full border focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent ${
-                  invalidFields && invalidFields.find((f) => f.field == "firstName")
+                  invalidFields &&
+                  invalidFields.find((f) => f.field == "firstName")
                     ? "border-red-200"
                     : "border-gray-600"
                 }`}
@@ -198,7 +199,8 @@ const ContactFormComponent = ({
                 placeholder={form_fields.last_name.placeholder}
                 required={form_fields.last_name.required}
                 className={`px-4 py-3 w-full text-lg font-normal bg-[#1B1B1B] placeholder-gray-400 text-white rounded-full border focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent ${
-                  invalidFields && invalidFields.find((f) => f.field == "lastName")
+                  invalidFields &&
+                  invalidFields.find((f) => f.field == "lastName")
                     ? "border-red-200"
                     : "border-gray-600"
                 }`}
@@ -250,7 +252,8 @@ const ContactFormComponent = ({
                 placeholder={form_fields.company.placeholder}
                 required={form_fields.company.required}
                 className={`px-4 py-3 w-full text-lg font-normal placeholder-gray-400 text-white bg-[#1B1B1B] rounded-full border  focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent ${
-                  invalidFields && invalidFields.find((f) => f.field == "company")
+                  invalidFields &&
+                  invalidFields.find((f) => f.field == "company")
                     ? "border-red-200"
                     : "border-gray-600"
                 }`}
@@ -287,7 +290,7 @@ const ContactFormComponent = ({
           {submitStatus && !submitStatus.success && (
             <div
               id="formError"
-              className="p-4 mb-4 rounded-lg bg-red-100 text-red-700"
+              className="p-4 mb-4 text-red-700 bg-red-100 rounded-lg"
             >
               {submitStatus.message}
             </div>
