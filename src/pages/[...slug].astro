@@ -9,7 +9,8 @@ export interface Props {
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
   return pages.map((page) => {
-    const slug = page.slug.replace(/index$/, "");
+    // Derive slug from id, removing file extension and index
+    const slug = page.id.replace(/\.md$/, "").replace(/index$/, "");
     if (slug.length === 0)
       return { params: { slug: undefined }, props: { page } };
     return { params: { slug }, props: { page } };
