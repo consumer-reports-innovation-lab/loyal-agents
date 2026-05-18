@@ -2,7 +2,7 @@ import site from "../../data/site.json";
 import { getCollection } from "astro:content";
 
 import rss from "@astrojs/rss";
-const posts = await getCollection("blog");
+const posts = await getCollection("resources");
 
 export async function GET() {
   return rss({
@@ -10,7 +10,7 @@ export async function GET() {
     description: site.description,
     site: "https://loyalagents.org/",
     items: posts.map((post) => ({
-      link: `/blog/${post.slug}`,
+      link: `/resources/${post.id.replace(/\.mdx$/, "")}`,
       title: post.data.title,
       pubDate: post.data.date,
     })),
