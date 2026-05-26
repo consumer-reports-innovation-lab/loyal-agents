@@ -163,7 +163,7 @@ content_blocks:
         and inform those choices.
       team_members:
         - name: Ben Moskowitz
-          title: Co-Lead, Consumer Reports Vice President, Innovation
+          title: Co-Lead, Former CR Vice President, Innovation
           link: https://innovation.consumerreports.org/team/ben-moskowitz/
           image_path: /images/team/ben-moskowitz.webp
           image_alt: Ben Moskowitz headshot
