@@ -1,10 +1,12 @@
 
   html {
-    @apply selection:bg-secondary/70 !scroll-smooth overflow-x-hidden!;
+    /* @apply selection:bg-secondary/70; */
+    @apply !scroll-smooth overflow-x-hidden!;
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-light !overflow-x-hidden;
+    @apply !overflow-x-hidden;
+    /* @apply bg-light; */
   }
   main{
     @apply !overflow-x-hidden;

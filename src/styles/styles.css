@@ -7,7 +7,6 @@
 html{
   scroll-behavior: smooth;
 }
-
 @import './base/base.css' ;
 @import './base/layout.css' ;
 @import './base/typography.css' ;
