@@ -172,11 +172,7 @@ content_blocks:
           link: https://innovation.consumerreports.org/team/ginny-fahs/
           image_path: /images/team/ginny-fahs.webp
           image_alt: Ginny Fahs headshot
-        - name: Andrew Bunyea
-          title: Expert, Associate Director at Consumer Reports
-          link: https://www.linkedin.com/in/andrew-bunyea
-          image_path: /images/team/andrew-bunyea.webp
-          image_alt: Andrew Bunyea headshot
+
         - name: Inyoung Cheong
           title: Expert, Princeton CITP Postdoctorate Researcher
           link: https://inyoungcheong.github.io/
