@@ -40,7 +40,7 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "@astrojs/rss": "^4.0.15",
+    "@astrojs/rss": "^4.0.19",
     "@bookshop/astro-engine": "3.18.2",
     "@bookshop/generate": "3.16.1",
     "@types/markdown-it": "^14.0.1",
